@@ -1,0 +1,36 @@
+@use '../../styles/variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: $radius-pill;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.55; // <button> doesn't inherit line-height like <a> does — pin it to match
+  cursor: pointer;
+  transition: background $ease-out 0.2s, border-color $ease-out 0.2s, color $ease-out 0.2s;
+  white-space: nowrap;
+}
+
+.solid {
+  background: var(--ink);
+  color: var(--paper);
+
+  &:hover {
+    background: var(--accent);
+  }
+}
+
+.ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--ink);
+
+  &:hover {
+    border-color: var(--ink);
+  }
+}

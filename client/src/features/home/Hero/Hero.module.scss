@@ -1,0 +1,34 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 760px;
+}
+
+.eyebrow {
+  @include mono-label;
+  @include rise($name: hero-eyebrow, $delay: 0s);
+}
+
+.title {
+  @include serif;
+  @include rise($name: hero-title, $delay: 0.08s);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.08;
+  color: var(--ink);
+}
+
+.tagline {
+  @include rise($name: hero-tagline, $delay: 0.16s);
+  font-size: 1.15rem;
+  max-width: 540px;
+}
+
+.actions {
+  @include button-row;
+  @include rise($name: hero-actions, $delay: 0.24s);
+  margin-top: 8px;
+}

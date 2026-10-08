@@ -1,0 +1,25 @@
+@use '../../styles/variables' as *;
+
+.section {
+  padding: 80px $page-padding-md;
+  max-width: $bp-xl;
+  margin: 0 auto;
+
+  @media (max-width: $bp-md) {
+    padding: 56px $page-padding-sm;
+  }
+}
+
+.hero {
+  padding-top: 120px;
+  padding-bottom: 96px;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: $bp-md) {
+    padding-top: 96px;
+    min-height: auto;
+  }
+}
