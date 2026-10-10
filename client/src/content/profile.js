@@ -22,7 +22,7 @@ export const HERO = {
 export const RESUME = {
   // Hosted on Google Drive until a local PDF lands in public/ — see PROJECT_STRUCTURE.md §4.
   // filename stays null for an external host: the `download` attribute is ignored cross-origin anyway.
-  href: 'https://drive.google.com/file/d/1AGVCCrHpDHqtNWYgHTYcLj7KEEargjyL/view?usp=sharing',
+  href: 'https://drive.google.com/file/d/1LilQZnpF8IRhxqjCxv4ymnGNrIJ3dPS9/view?usp=sharing',
   filename: null,
 }
 

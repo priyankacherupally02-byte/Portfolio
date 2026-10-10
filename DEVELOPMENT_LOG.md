@@ -6,6 +6,12 @@ Running journal of what's been built, the decisions behind it, and the traps tha
 
 ---
 
+## 2026-10-10 — Resume link updated
+
+- `RESUME.href` (`content/profile.js`) now points at the new Google Drive file `1LilQZnpF8IRhxqjCxv4ymnGNrIJ3dPS9`. It's the only place the URL lives, so the hero "View resume" and footer "View resume" buttons both pick it up. Build clean.
+
+---
+
 ## 2026-10-10 — "Screens designed" stat: 40+ → 50+
 
 - `content/stats.js`: the user confirmed the real figure as 50+. The value changed 40 → 50 and the placeholder TODO comment was removed. The stat is no longer a placeholder. Build clean.
