@@ -6,6 +6,12 @@ Running journal of what's been built, the decisions behind it, and the traps tha
 
 ---
 
+## 2026-10-10 — "Screens designed" stat: 40+ → 50+
+
+- `content/stats.js`: the user confirmed the real figure as 50+. The value changed 40 → 50 and the placeholder TODO comment was removed. The stat is no longer a placeholder. Build clean.
+
+---
+
 ## 2026-10-10 — Positioning: problem solver, not only "complex → simple screens"
 
 The positioning now says she's a problem solver as well as someone who simplifies workflows. It's grounded in the case studies (e.g. Edusphere's reflection about separating what a brief asks for from what it needs).
