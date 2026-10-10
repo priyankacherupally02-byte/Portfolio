@@ -1,0 +1,707 @@
+{
+  "slug": "seatrack",
+  "sourceTitle": "Seatrack",
+  "headline": "SeaTrack: Tracking Shrimp from Booking to Cold Storage",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Context",
+      "id": "context"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The client handles shrimp in large volumes — starting with booking a supply from a farmer, all the way through to packing and cold storage. Every one of these steps used to be tracked separately, in different sheets, by different teams."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "SeaTrack is PatternLab.AI's system built to bring the whole journey into one place. I designed the screens for every stage — from the first booking to the final cold store outward — so that anyone on the team can see exactly where a batch is and what's happened to it."
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The problem",
+      "id": "the-problem"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "With data scattered across sheets and systems, there was no single, reliable way to follow a batch from the pond to the plant. Every handoff between teams meant re-entering or re-checking information, and by the time something looked off, the batch had often already moved several steps ahead."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why we built it",
+      "id": "why-we-built-it"
+    },
+    {
+      "type": "quote",
+      "text": "Keep track of the shrimp, every step of the way."
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "From the moment it's booked with a farmer to the moment it leaves cold storage, someone should be able to look it up and know exactly where it is and what condition it's in."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Who uses it",
+      "id": "who-uses-it"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Different people touch different parts of this journey:"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Procurement staff",
+            "bold": true
+          },
+          {
+            "text": " — booking and receiving shrimp"
+          }
+        ],
+        [
+          {
+            "text": "Supervisors",
+            "bold": true
+          },
+          {
+            "text": " — running beheading, grading, and peeling stations"
+          }
+        ],
+        [
+          {
+            "text": "Plant staff",
+            "bold": true
+          },
+          {
+            "text": " — managing packing and cold storage"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Each of them needed a screen built for their part of the job, without needing to understand everyone else's."
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The journey, stage by stage",
+      "id": "the-journey-stage-by-stage"
+    },
+    {
+      "type": "stages",
+      "intro": "Jump to any stage:",
+      "items": [
+        {
+          "id": "stage-booking",
+          "label": "Booking",
+          "step": 1
+        },
+        {
+          "id": "stage-purchase",
+          "label": "Purchase",
+          "step": 2
+        },
+        {
+          "id": "stage-receiving-site-plant",
+          "label": "Receiving (Site & Plant)",
+          "step": 3
+        },
+        {
+          "id": "stage-beheading",
+          "label": "Beheading",
+          "step": 4
+        },
+        {
+          "id": "stage-grading",
+          "label": "Grading",
+          "step": 5
+        },
+        {
+          "id": "stage-peeling-cutting",
+          "label": "Peeling & Cutting",
+          "step": 6
+        },
+        {
+          "id": "stage-soaking",
+          "label": "Soaking",
+          "step": 7
+        },
+        {
+          "id": "stage-material-transfer",
+          "label": "Material Transfer",
+          "step": 8
+        },
+        {
+          "id": "stage-nobashi",
+          "label": "Nobashi",
+          "step": 9
+        },
+        {
+          "id": "stage-iqf-section",
+          "label": "IQF Section",
+          "step": 10
+        },
+        {
+          "id": "stage-leftover",
+          "label": "Leftover",
+          "step": 11
+        },
+        {
+          "id": "stage-packing",
+          "label": "Packing",
+          "step": 12
+        },
+        {
+          "id": "stage-cold-store-inward",
+          "label": "Cold Store Inward",
+          "step": 13
+        },
+        {
+          "id": "stage-cold-store-outward",
+          "label": "Cold Store Outward",
+          "step": 14
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Booking",
+      "id": "stage-booking",
+      "step": 1
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Everything starts here. A booking is created with a supplier, location, count range, and expected arrival date. From this screen, the team can view, edit, or cancel a booking, and track its status (Booked or Cancelled) at a glance."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "01.jpg",
+          "width": 1600,
+          "height": 982
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Purchase",
+      "id": "stage-purchase",
+      "step": 2
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Once a booking is confirmed, purchase details are added — supplier, variety, quantity, and the supervisor responsible for that batch. This is where a booking turns into an actual order that can be tracked forward."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "02.jpg",
+          "width": 1600,
+          "height": 982
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Receiving (Site & Plant)",
+      "id": "stage-receiving-site-plant",
+      "step": 3
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Shrimp gets received in two places — first on-site, then again at the plant. Both screens capture the same basics (supplier, quantity, count, purchase details) so the numbers can be compared later to check accuracy between what was booked and what actually arrived."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "03.jpg",
+          "width": 1600,
+          "height": 982
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Beheading",
+      "id": "stage-beheading",
+      "step": 4
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Batches move into beheading, where the \"with head\" quantity is logged against the \"headless\" output. The system calculates a sample yield percentage automatically, so supervisors can immediately see whether a batch is performing to standard."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "04.jpg",
+          "width": 1600,
+          "height": 982
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Grading",
+      "id": "stage-grading",
+      "step": 5
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Here, batches are sorted and sized. The screen lets a supervisor break one batch into multiple grades, each with its own count and quantity, and lock in the totals once sorting is complete."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "05.jpg",
+          "width": 1600,
+          "height": 982
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Peeling & Cutting",
+      "id": "stage-peeling-cutting",
+      "step": 6
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Batches from grading or beheading move into peeling and cutting. Multiple batches can be merged into one working batch for processing, then split back out again if needed — the system keeps track of the original batch numbers throughout."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "06.jpg",
+          "width": 1600,
+          "height": 1008
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Soaking",
+      "id": "stage-soaking",
+      "step": 7
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Soaking has more variables than most stages — tank number, brand, shift, required soak time, and start time all get logged, since going even a little over or under spec affects the final product. The screen tracks how long a batch has been soaking against its target time."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "07.jpg",
+          "width": 1600,
+          "height": 1231
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Material Transfer",
+      "id": "stage-material-transfer",
+      "step": 8
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "This screen handles shrimp moving between plants — one tab for what's arriving, one for what's being sent out. It's the connective tissue that lets a batch move across physical locations without losing its identity."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "08.jpg",
+          "width": 1600,
+          "height": 982
+        },
+        {
+          "file": "09.jpg",
+          "width": 1600,
+          "height": 982
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Nobashi",
+      "id": "stage-nobashi",
+      "step": 9
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "For batches going through this stretching process, the screen tracks pickup quantity, loss, and final output — giving a clear before-and-after on how much usable product came out the other side."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "10.jpg",
+          "width": 1600,
+          "height": 982
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "IQF Section",
+      "id": "stage-iqf-section",
+      "step": 10
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Batches heading into individual quick freezing get logged with material type, size ratio, sample count, and rejection quantity — the details that determine how the batch will freeze and hold up in storage."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "11.jpg",
+          "width": 1600,
+          "height": 1231
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Leftover",
+      "id": "stage-leftover",
+      "step": 11
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Not everything gets used right away. This screen tracks leftover quantities by grade and variety, so nothing sits around unaccounted for."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "12.jpg",
+          "width": 1600,
+          "height": 982
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Packing",
+      "id": "stage-packing",
+      "step": 12
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "This is the most detailed screen in the whole flow — packaging type, species, packing style, master cartons, glaze type, and more all come together here. At the end, it automatically shows total meat quantity, total packing quantity, rejections, and yield percentage, so a supervisor can judge the batch's outcome in one glance."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "13.jpg",
+          "width": 1600,
+          "height": 1948
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Cold Store Inward",
+      "id": "stage-cold-store-inward",
+      "step": 13
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Once packed, batches are logged into cold storage — batch number, grade, variety, packing type, and total slabs, ready to be viewed or saved into inventory."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "14.jpg",
+          "width": 1600,
+          "height": 898
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Cold Store Outward",
+      "id": "stage-cold-store-outward",
+      "step": 14
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The final stage. Batches leaving cold storage are matched to their rack, pallet, and cold store unit, with input slabs converted into kilograms for the final outbound record."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "15.jpg",
+          "width": 1600,
+          "height": 898
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Seeing the whole journey at once: the Traceability Agent",
+      "id": "seeing-the-whole-journey-at-once-the-traceability-agent"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "All the stages above capture data one screen at a time. The Traceability Agent is where that data comes together into a single picture — a live graph that shows every batch's path from supplier to packing, all on one screen."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Instead of clicking into separate forms to piece together a batch's history, the graph lays it out visually: a booking flows into receiving, receiving into beheading, beheading into grading, and so on, all the way through to packing. Each stage shows up as a node with its weight and batch number, connected by arrows that show exactly where that material came from and where it went."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "16.jpg",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "A few things make this more than just a diagram:"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Splits and transfers are traceable.",
+            "bold": true
+          },
+          {
+            "text": " When a batch is split across multiple output paths, or transferred to another plant, the graph shows both branches clearly, so nothing gets lost when material moves or divides."
+          }
+        ],
+        [
+          {
+            "text": "There's a chat panel built in.",
+            "bold": true
+          },
+          {
+            "text": " Instead of only clicking through the graph, you can ask it questions directly — \"why did this booking fail,\" \"show me the contamination path,\" \"which batches are still conditional\" — and it answers using the graph's own data."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "17.jpg",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "file": "18.jpg",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "file": "19.jpg",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "file": "20.jpg",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "21.jpg",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "How it was built"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "This piece was built in VS Code, working alongside Claude Code — I worked on the UI directly while Claude helped generate and iterate on the interface, which let the graph, the detail panels, and the chat experience come together quickly without sacrificing the level of detail each QC view needed."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Outcome",
+      "id": "outcome"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Every one of these stages is live and in daily use. Data flows from one screen into the next, so a batch's history — from booking to cold store outward — can be traced end to end instead of pieced together after the fact. The same information also feeds into reports, exports, the KPI dashboard, and now the Traceability Agent — giving the team both the detailed, stage-by-stage view and the single, end-to-end picture of every batch."
+        }
+      ]
+    }
+  ],
+  "glance": [
+    {
+      "label": "Product",
+      "value": "PatternLab.AI — SeaTrack"
+    },
+    {
+      "label": "Scope",
+      "value": "14 stage screens, booking → cold store"
+    },
+    {
+      "label": "Plus",
+      "value": "Traceability Agent: live graph + chat"
+    },
+    {
+      "label": "Status",
+      "value": "Live, in daily use"
+    }
+  ],
+  "tldr": "Shrimp moved from farmer booking to cold storage through 14 stages, each tracked in separate sheets by separate teams. I designed SeaTrack's screens for every stage — and a Traceability Agent that shows any batch's full journey on one live graph."
+}

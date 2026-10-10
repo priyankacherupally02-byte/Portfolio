@@ -1,0 +1,656 @@
+{
+  "slug": "edusphere",
+  "sourceTitle": "Edusphere - Learning Management System (LMS)",
+  "headline": null,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "1 · Overview",
+      "id": "overview"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "PatternLab builds real-time production planning and scheduling software for manufacturing companies. As the core product moved into rollout, the client raised an adoption problem: thousands of factory operators — with wildly different literacy, language, and comfort with digital tools — would need to learn the new system, and there weren't enough trainers to do it in person, repeatedly, at scale."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The client's ask was direct: build a learning platform that lives with the product, so operators can train themselves. No manuals to lose, no dependency on a trainer's schedule, and no data leaving their own systems — they explicitly did not want to evaluate or adopt a third-party LMS. Over five months, I designed and built EduSphere: an admin-authored, self-serve knowledge hub with video lessons, quizzes, certifications, and progress tracking for both operators and the managers overseeing them."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2 · The Problem",
+      "id": "the-problem"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Why this needed to exist"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "The manufacturing client was rolling out a new production planning platform to a large, distributed operator workforce."
+          }
+        ],
+        [
+          {
+            "text": "Most operators were unfamiliar with digital scheduling tools — some had never used software with this level of interactivity before."
+          }
+        ],
+        [
+          {
+            "text": "In-person training doesn't scale:",
+            "bold": true
+          },
+          {
+            "text": " new hires join continuously, shifts rotate, and trainers can't be everywhere at once."
+          }
+        ],
+        [
+          {
+            "text": "Hard constraint:",
+            "bold": true
+          },
+          {
+            "text": " operational data was sensitive, and the client would not adopt or trial an external LMS to hold it. Whatever was built had to be native to their own environment."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "What “done” looked like"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Operators should be able to onboard themselves from inside the platform — watch a lesson, get tested on it, and prove competency — without a live trainer, and admins needed a way to author and monitor all of it."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3 · Research & Discovery",
+      "id": "research-discovery"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Discovery here was narrower than a typical greenfield UX process, and that's worth being upfront about. Two constraints shaped the approach: the client would not consider or benchmark other LMS products, and competitor manufacturing-training tools kept their product experience closed off — there was little to ethically or practically inspect from outside. Research leaned on direct requirement-gathering with the client and reasoning from the end-user's actual working conditions, rather than comparative benchmarking."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Findings that actually shaped design decisions"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Varying literacy levels across the operator base",
+            "bold": true
+          },
+          {
+            "text": " — content couldn't assume comfortable reading of dense instructions."
+          }
+        ],
+        [
+          {
+            "text": "Language differences across the workforce",
+            "bold": true
+          },
+          {
+            "text": " — content needed to support more than one spoken/written language, not just UI copy."
+          }
+        ],
+        [
+          {
+            "text": "Low tech-comfort for a meaningful portion of users — the UI needed to be closer to “watch and tap” than “navigate and configure.”"
+          }
+        ],
+        [
+          {
+            "text": "A split audience:",
+            "bold": true
+          },
+          {
+            "text": " operators needed a simple, linear path; managers/admins authoring content needed a full content-management system behind the same product."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4 · First Attempt — and Why It Didn't Hold Up",
+      "id": "first-attempt-and-why-it-didn-t-hold-up"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The first version of EduSphere was intentionally minimal: a video module where admins could upload a training video with a language preference, and operators could open it and watch. On paper it satisfied the brief. In practice it broke down almost immediately from either end of the workflow:"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "No structure",
+            "bold": true
+          },
+          {
+            "text": " — a flat list of videos gave operators no sense of order, progress, or what “done” meant for a topic."
+          }
+        ],
+        [
+          {
+            "text": "No way to verify learning happened",
+            "bold": true
+          },
+          {
+            "text": " — watching a video isn't the same as being competent; the client needed proof of usable skill, not proof a video had played."
+          }
+        ],
+        [
+          {
+            "text": "No admin visibility",
+            "bold": true
+          },
+          {
+            "text": " — no way to see who had engaged, who hadn't, or which content landed, which made the exercise unmeasurable and indefensible to leadership."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "This was the point where the project changed shape: from “a place to host training videos” to “a real learning management system” — with modules, classes, quizzes, certifications, admin authoring tools, and progress analytics for both operator and manager."
+        }
+      ]
+    },
+    {
+      "type": "flow",
+      "title": "The loop the rest of the system is built on",
+      "steps": [
+        "Watch",
+        "Assess",
+        "Certify",
+        "Track"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5 · The Solution: Two Portals, One System",
+      "id": "the-solution-two-portals-one-system"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "EduSphere splits into an Admin Portal (author and manage content, quizzes, certifications, and track everyone's progress) and a Learner Portal (consume content in a guided order and earn certifications). A single landing screen routes each user into the right experience."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "01.jpg",
+          "width": 1600,
+          "height": 618,
+          "caption": "Entry screen — routes users into the Admin Portal or the Learner Portal based on role."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "5.1 Learner Experience"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The learner side was designed around one rule taken directly from the research: don't make operators think about navigation. Progress should be visibly linear — complete a class, unlock the next one, see your own standing without asking anyone."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "My Journey",
+            "bold": true
+          },
+          {
+            "text": " — a single dashboard showing overall progress, certifications earned, quiz average, and a clear “continue where you left off” action, so there's never a question of what to do next."
+          }
+        ],
+        [
+          {
+            "text": "Knowledge Hub",
+            "bold": true
+          },
+          {
+            "text": " — modules broken into classes that unlock in sequence once the prior class's assessment is passed, so operators are never dropped into content out of order."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "02.jpg",
+          "width": 1600,
+          "height": 626,
+          "caption": "“My Journey” — progress, certs, and one next action."
+        },
+        {
+          "file": "03.jpg",
+          "width": 1600,
+          "height": 623,
+          "caption": "Knowledge Hub — classes unlock as assessments are passed."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Certifications",
+            "bold": true
+          },
+          {
+            "text": " — a visible record of what's been earned, in progress, and still locked, tied to specific modules."
+          }
+        ],
+        [
+          {
+            "text": "Leaderboard",
+            "bold": true
+          },
+          {
+            "text": " — team-wide ranking by completion and certifications, added deliberately to bring a light social/competitive incentive to what is otherwise a compliance task."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "04.jpg",
+          "width": 1600,
+          "height": 610,
+          "caption": "Certifications — earned, in-progress, and locked, by module."
+        },
+        {
+          "file": "05.jpg",
+          "width": 1600,
+          "height": 689,
+          "caption": "Team leaderboard — rank, completion %, certs earned."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "5.2 Admin Experience"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The admin side exists because the first version's biggest gap was authorship and visibility. Managers needed to create and maintain content without engineering help, and needed a real answer to “is this working?” for their own leadership."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Upload",
+            "bold": true
+          },
+          {
+            "text": " — video, voiceover, and document management per module/class, with per-item status (Live/Hidden) so content can be staged before it goes to operators."
+          }
+        ],
+        [
+          {
+            "text": "Quiz",
+            "bold": true
+          },
+          {
+            "text": " — mandatory assessments tied to a specific module and class, each with its own pass mark, plus a queue for reset/retry requests from operators who've exhausted their attempts."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "06.jpg",
+          "width": 1600,
+          "height": 646,
+          "caption": "Upload — video library by module/class, live/hidden status."
+        },
+        {
+          "file": "07.jpg",
+          "width": 1600,
+          "height": 694,
+          "caption": "Quiz — assessments per module/class, configurable pass marks."
+        },
+        {
+          "file": "08.jpg",
+          "width": 1600,
+          "height": 620
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Certifications",
+            "bold": true
+          },
+          {
+            "text": " — auto-issued once an operator clears all classes and quizzes in a module, with a configurable signing authority so certificates carry real organizational weight."
+          }
+        ],
+        [
+          {
+            "text": "Knowledge Hub (management view)",
+            "bold": true
+          },
+          {
+            "text": " — the single place to see module/class structure, completion rates, and quiz assignment status at a glance."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "09.jpg",
+          "width": 1600,
+          "height": 618,
+          "caption": "Certifications — auto-issued, signed by a configured authority."
+        },
+        {
+          "file": "10.jpg",
+          "width": 1600,
+          "height": 622,
+          "caption": "Knowledge Hub (mgmt view) — structure, completion, quiz status."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Leaderboard & Quick Guides",
+            "bold": true
+          },
+          {
+            "text": " — a management-level view of who's progressing (and who isn't), plus a lightweight space for short help videos accessed via an in-product help icon, so operators can get unstuck without leaving the flow."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "11.jpg",
+          "width": 1600,
+          "height": 620,
+          "caption": "Leaderboard & Quick Guides — completion/certification tracking plus short in-product help videos."
+        },
+        {
+          "file": "12.jpg",
+          "width": 1600,
+          "height": 626
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6 · Mistakes, Learnings, and How I Worked Through Them",
+      "id": "mistakes-learnings-and-how-i-worked-through-them"
+    },
+    {
+      "type": "compare",
+      "title": "Mistake 1 — Designing the container before the outcome",
+      "columns": [
+        {
+          "label": "WHAT WENT WRONG",
+          "segments": [
+            {
+              "text": "The first build (video-only, upload-and-watch) was a mistake of scope, not execution — designed for “deliver content” when the actual requirement was “prove competency.” It looked complete because it satisfied the literal brief, but didn't survive the real question managers would ask: how do we know this worked?"
+            }
+          ]
+        },
+        {
+          "label": "HOW I FIXED IT",
+          "segments": [
+            {
+              "text": "Stopped treating the video module as the product and treated it as one component inside a larger loop — watch, assess, certify, track. That reframing produced the module/class/quiz/certification structure the rest of the system is built on."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "Mistake 2 — Under-scoping the admin side early on",
+      "columns": [
+        {
+          "label": "WHAT WENT WRONG",
+          "segments": [
+            {
+              "text": "Because the brief was framed around the operator (“who can guide themselves”), the admin experience was initially an afterthought. That created a real bottleneck once content needed to be added, staged, hidden, or corrected — there was no interface for it, so every change was a manual, non-repeatable task."
+            }
+          ]
+        },
+        {
+          "label": "HOW I FIXED IT",
+          "segments": [
+            {
+              "text": "Rebuilt the admin side as a full parallel product — Upload, Quiz, Certifications, Knowledge Hub, Leaderboard, Quick Guides — rather than a settings panel bolted onto the learner app, letting managers self-serve their side the same way operators self-serve theirs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "Mistake 3 — Treating research as optional given the constraints",
+      "columns": [
+        {
+          "label": "WHAT WENT WRONG",
+          "segments": [
+            {
+              "text": "With no permission to benchmark competitors and no appetite from the client to evaluate other LMS products, it was tempting to skip structured discovery and just build from the brief. That happened early on, and it shows in how much the first version had to be reworked."
+            }
+          ]
+        },
+        {
+          "label": "HOW I FIXED IT",
+          "segments": [
+            {
+              "text": "Shifted from comparative research (unavailable) to constraint-driven research — treating literacy, language, and tech-comfort variance as the actual design brief, testing every screen against “could the least tech-comfortable operator use this without help?” rather than against other LMS tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Strategy that came out of this"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Design the loop first, the screen second",
+            "bold": true
+          },
+          {
+            "text": " — watch → assess → certify → track, then decide what UI each step needs, rather than starting from a single screen and hoping the rest follows."
+          }
+        ],
+        [
+          {
+            "text": "Build both sides of any two-sided system in parallel — an admin console isn't secondary polish on a learner product; it's the other half of the same workflow."
+          }
+        ],
+        [
+          {
+            "text": "When comparative research isn't available, constraint-driven research is the substitute — design against the hardest real user, not against an average one."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7 · Outcome",
+      "id": "outcome"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "EduSphere was built and rolled out to the client as an internal training module alongside their core production planning product."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "As a solo designer-developer project delivered over five months, it grew from a single video-upload screen into a full two-sided LMS — with authoring, assessment, certification, and progress tracking."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The concrete outcome was a working, adopted system rather than a set of mockups: the client now has a self-contained way to onboard and certify operators without depending on live trainers or third-party platforms."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Formal adoption metrics (completion rates, certification volume across the full operator base) were still accumulating as the rollout continued past the scope of this write-up; the honest framing here is a shipped, in-use product with outcomes still maturing, not a fully closed-loop metric story yet."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "8 · Reflection",
+      "id": "reflection"
+    },
+    {
+      "type": "quote",
+      "text": "It was really an accountability problem wearing a content-delivery costume."
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The biggest shift in this project wasn't visual design — it was learning to separate what a brief literally asks for from what it actually needs. “Let operators guide themselves” sounded like a content-delivery problem. It was really an accountability problem wearing a content-delivery costume, and the first version only worked once I designed for the second thing instead of the first."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The second lesson was about scope ownership as a solo designer-developer: without a team to catch a one-sided design, the discipline has to be self-imposed — deliberately building and testing both the admin and learner experience side by side, on a five-month timeline, rather than sequencing one after the other and hoping the second didn't reveal problems in the first."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Walkthrough"
+    },
+    {
+      "type": "video",
+      "youtubeId": "J5KEZ0nJiR0",
+      "title": "Edusphere - Learning Management System (LMS) — walkthrough video",
+      "caption": "A walkthrough of EduSphere."
+    }
+  ],
+  "glance": [
+    {
+      "label": "Role",
+      "value": "Solo designer & developer"
+    },
+    {
+      "label": "Timeline",
+      "value": "5 months"
+    },
+    {
+      "label": "Client",
+      "value": "PatternLab — manufacturing"
+    },
+    {
+      "label": "Built",
+      "value": "Admin Portal + Learner Portal"
+    }
+  ],
+  "tldr": "Thousands of factory operators had to learn a new production platform — with too few trainers and no third-party LMS allowed. I designed and built EduSphere: a self-serve learning system where operators watch, get tested and get certified, and managers author and track all of it."
+}

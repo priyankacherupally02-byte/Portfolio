@@ -1,0 +1,39 @@
+.illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+// Gentle bob, as if riding on water — runs continuously regardless of
+// whatever GSAP is doing to the outer wrapper's own transform/position
+// (this is a nested SVG group, not the element GSAP animates).
+@keyframes boat-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.float {
+  animation: boat-float 2.8s ease-in-out infinite;
+}
+
+// Continuous push-the-pole motion — independent of the scroll-linked
+// transform on the parent wrapper, so it keeps animating while scrolling.
+@keyframes paddle-row {
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+.paddle {
+  animation: paddle-row 1.6s ease-in-out infinite;
+}

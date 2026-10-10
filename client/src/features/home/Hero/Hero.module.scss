@@ -1,34 +1,91 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 760px;
+// Highlighter sweep behind the italic word in the headline.
+@keyframes highlight-in {
+  from {
+    background-size: 0% 0.42em;
+  }
+  to {
+    background-size: 100% 0.42em;
+  }
 }
 
-.eyebrow {
+.root {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  column-gap: 64px;
+  row-gap: 56px;
+  align-items: center;
+  flex: 1 1 auto;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 56px;
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.showcase {
+  min-width: 0;
+
+  @media (max-width: $bp-lg) {
+    width: 100%;
+    max-width: 640px;
+  }
+}
+
+.name {
   @include mono-label;
-  @include rise($name: hero-eyebrow, $delay: 0s);
+  @include rise($name: hero-name, $delay: 0s);
+}
+
+.dot {
+  color: var(--accent);
 }
 
 .title {
   @include serif;
   @include rise($name: hero-title, $delay: 0.08s);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
-  line-height: 1.08;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
   color: var(--ink);
+}
+
+.highlight {
+  font-style: italic;
+  color: var(--accent);
+  background: linear-gradient(var(--primary-soft), var(--primary-soft)) no-repeat 0 88% / 0% 0.42em;
+  animation: highlight-in 0.9s $ease-out 0.7s forwards;
 }
 
 .tagline {
   @include rise($name: hero-tagline, $delay: 0.16s);
-  font-size: 1.15rem;
-  max-width: 540px;
+  font-size: 1.1rem;
+  max-width: 460px;
 }
 
 .actions {
   @include button-row;
   @include rise($name: hero-actions, $delay: 0.24s);
   margin-top: 8px;
+
+  @media (max-width: $bp-btn) {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .highlight {
+    animation: none;
+    background-size: 100% 0.42em;
+  }
 }

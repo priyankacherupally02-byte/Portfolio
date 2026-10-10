@@ -1,14 +1,18 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import { useAppStore } from '@/store/appStore'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
+import { Cursor } from './Cursor'
 
 export default function MainLayout() {
   const { pathname } = useLocation()
+  const closeMobileMenu = useAppStore((state) => state.closeMobileMenu)
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [pathname])
+    closeMobileMenu()
+  }, [pathname, closeMobileMenu])
 
   return (
     <>
@@ -17,6 +21,7 @@ export default function MainLayout() {
         <Outlet />
       </main>
       <Footer />
+      <Cursor />
     </>
   )
 }

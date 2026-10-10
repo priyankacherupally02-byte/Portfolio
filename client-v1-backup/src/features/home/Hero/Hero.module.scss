@@ -1,0 +1,51 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 760px;
+
+  // Guarantees clearance before HeroWater's bottom-pinned water strip,
+  // regardless of how tall the stacked stats get — reserving space via
+  // padding is more robust than guessing a `min-height` vh value, since
+  // that depends on exactly how many stats stack and how they wrap.
+  padding-bottom: 180px;
+
+  @media (max-width: $bp-md) {
+    padding-bottom: 140px;
+  }
+}
+
+.eyebrow {
+  @include mono-label;
+  @include rise($name: hero-eyebrow, $delay: 0s);
+}
+
+.title {
+  @include serif;
+  @include rise($name: hero-title, $delay: 0.08s);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.08;
+  color: var(--ink);
+}
+
+.tagline {
+  @include rise($name: hero-tagline, $delay: 0.16s);
+  font-size: 1.15rem;
+  max-width: 540px;
+}
+
+.actions {
+  @include button-row;
+  @include rise($name: hero-actions, $delay: 0.24s);
+  margin-top: 8px;
+}

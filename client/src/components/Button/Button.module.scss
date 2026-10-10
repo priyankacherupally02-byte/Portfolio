@@ -1,36 +1,189 @@
 @use '../../styles/variables' as *;
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: $radius-pill;
-  border: 1px solid transparent;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.55; // <button> doesn't inherit line-height like <a> does — pin it to match
-  cursor: pointer;
-  transition: background $ease-out 0.2s, border-color $ease-out 0.2s, color $ease-out 0.2s;
-  white-space: nowrap;
-}
-
-.solid {
-  background: var(--ink);
-  color: var(--paper);
-
-  &:hover {
-    background: var(--accent);
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.45;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
   }
 }
 
-.ghost {
-  background: transparent;
-  border-color: var(--border);
-  color: var(--ink);
+// Each variant sets: --bg (rest), --fg (rest text), --fill (hover flood colour),
+// --fill-fg (text on top of the flood), --edge (border).
+.btn {
+  --mx: 0px;
+  --my: 0px;
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border-radius: $radius-pill;
+  border: 1.5px solid var(--edge);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.55; // <button> doesn't inherit line-height like <a> does — pin it to match
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate(var(--mx), var(--my));
+  transition:
+    transform 0.4s $ease-spring,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 
+  // Hover: colour floods outward from wherever the pointer entered.
   &:hover {
-    border-color: var(--ink);
+    color: var(--fill-fg);
+    border-color: var(--fill);
+    box-shadow: 0 10px 26px -10px var(--fill);
+  }
+
+  // Press: squish + inset shade; drops the magnetic offset slightly toward centre.
+  &:active {
+    transform: translate(calc(var(--mx) * 0.6), calc(var(--my) * 0.6)) scale(0.94);
+    box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.18);
+    transition-duration: 0.12s;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+}
+
+.fill {
+  position: absolute;
+  z-index: -1;
+  left: var(--x);
+  top: var(--y);
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  border-radius: 50%;
+  background: var(--fill);
+  transform: scale(0);
+  transition: transform 0.55s $ease-out;
+  pointer-events: none;
+
+  .btn:hover & {
+    transform: scale(1);
+  }
+}
+
+.ripple {
+  position: absolute;
+  z-index: 0;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: currentColor;
+  pointer-events: none;
+  animation: ripple 0.6s $ease-out forwards;
+}
+
+// Text roll: the label is rendered twice, stacked; hover slides the stack up so
+// a fresh copy rolls in from below.
+.label {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  height: 1.55em;
+  overflow: hidden;
+}
+
+.labelTrack {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s $ease-spring;
+
+  .btn:hover & {
+    transform: translateY(-50%);
+  }
+}
+
+.labelText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 1.55em;
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-right: -10px;
+  border-radius: 50%;
+  background: var(--icon-bg);
+  color: var(--icon-fg);
+  transition:
+    transform 0.45s $ease-spring,
+    background 0.35s ease,
+    color 0.35s ease;
+
+  .btn:hover & {
+    transform: translate(3px, -1px) scale(1.12);
+    background: var(--fill-fg);
+    color: var(--fill);
+  }
+}
+
+.solid {
+  --bg: var(--accent);
+  --fg: var(--accent-ink);
+  --edge: var(--accent);
+  --fill: var(--ink);
+  --fill-fg: var(--paper);
+  --icon-bg: color-mix(in srgb, var(--accent-ink) 22%, transparent);
+  --icon-fg: var(--accent-ink);
+}
+
+.ghost {
+  --bg: color-mix(in srgb, var(--surface) 60%, transparent);
+  --fg: var(--ink);
+  --edge: var(--border-strong);
+  --fill: var(--primary-soft);
+  --fill-fg: var(--primary-ink);
+  --icon-bg: var(--paper-2);
+  --icon-fg: var(--ink);
+}
+
+.soft {
+  --bg: var(--primary-soft);
+  --fg: var(--primary-ink);
+  --edge: var(--primary-soft);
+  --fill: var(--accent);
+  --fill-fg: var(--accent-ink);
+  --icon-bg: color-mix(in srgb, var(--primary-ink) 14%, transparent);
+  --icon-fg: var(--primary-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .fill,
+  .labelTrack,
+  .icon {
+    transition: none;
+  }
+
+  .btn:hover .labelTrack {
+    transform: none;
   }
 }

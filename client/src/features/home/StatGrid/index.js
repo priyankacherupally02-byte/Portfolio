@@ -6,7 +6,7 @@ export function StatGrid() {
   return (
     <div className={styles.grid}>
       {STATS.map((stat) => (
-        <div className={styles.stat} key={stat.label}>
+        <div className={styles.stat} key={stat.label} data-spotlight>
           <span className={styles.value}>
             <Counter value={stat.value} suffix={stat.suffix} />
           </span>

@@ -1,0 +1,26 @@
+@use '../../styles/variables' as *;
+
+.section {
+  padding: 80px $page-padding-md;
+  max-width: $bp-xl;
+  margin: 0 auto;
+
+  @media (max-width: $bp-md) {
+    padding: 56px $page-padding-sm;
+  }
+}
+
+.hero {
+  padding-top: 120px;
+  padding-bottom: 32px;
+  // Tall enough to clear text + buttons + stats before HeroWater's
+  // bottom-pinned water strip begins — grew once stats moved in here.
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $bp-md) {
+    padding-top: 96px;
+    min-height: 92vh;
+  }
+}

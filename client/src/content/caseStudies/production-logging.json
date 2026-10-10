@@ -1,0 +1,208 @@
+{
+  "slug": "production-logging",
+  "sourceTitle": "Production Logging at a Glance",
+  "headline": null,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Challenge",
+      "id": "the-challenge"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "A dairy line running 24 hours a day throws off far more downtime events than any manual form can keep up with. Every micro-stop — a jam, a changeover, a sensor fault — needed its own entry: start time, stop time, reason, type. Multiply that across machines and shifts, and operators were spending more time filling downtime forms than running the line."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The first fix was a visual one: a color-coded timeline per machine, one bar per day, segments colored by downtime type. It solved the volume problem at a glance — utilization and availability were visible instantly. But it created a new one."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Packed into a single bar, individual micro-stops were too small and too close together to tell apart, let alone tap accurately. Operators could see that something had gone wrong, but not which segment it was or how to log it."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Previous Machine Timeline UI"
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "01.jpg",
+          "width": 1600,
+          "height": 833
+        },
+        {
+          "file": "02.jpg",
+          "width": 1600,
+          "height": 833
+        }
+      ],
+      "label": "Before"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Approach",
+      "id": "the-approach"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "PatternLab's Factory Intelligence pulls machine state from CT sensors on the line, cleans and organizes it, and puts it in front of operators to fill the forms:"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        [
+          {
+            "text": "The timeline bar",
+            "bold": true
+          },
+          {
+            "text": " — Utilization (%) and Availability (%) per machine, with uptime, downtime, Clean in progress (CIP), deviation segments color-coded across the day, for a one-glance read on how a machine is doing."
+          }
+        ],
+        [
+          {
+            "text": "Expand to log",
+            "bold": true
+          },
+          {
+            "text": " — the three-dot menu on any machine breaks its timeline into a structured list: one row per downtime event, with start time, stop time, duration, and a reason dropdown, laid out the same way whether there are three stops that shift or thirty."
+          }
+        ],
+        [
+          {
+            "text": "Hover to identify",
+            "bold": true
+          },
+          {
+            "text": " — resting on any segment surfaces exactly what it is: start time, end time, duration, reason (if logged). No more guessing which sliver of color is which stop."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Present Machine Timeline UI"
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "03.jpg",
+          "width": 1600,
+          "height": 849
+        },
+        {
+          "file": "04.jpg",
+          "width": 1600,
+          "height": 849
+        },
+        {
+          "file": "05.jpg",
+          "width": 1600,
+          "height": 849
+        },
+        {
+          "file": "06.jpg",
+          "width": 1600,
+          "height": 849
+        }
+      ],
+      "label": "After"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Downtime capture sits alongside Production, Lab Test, and Yield forms in the same view, so the operator isn't switching screens to reconstruct what happened on a line."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Result",
+      "id": "the-result"
+    },
+    {
+      "type": "stats",
+      "items": [
+        {
+          "value": "68%",
+          "label": "reduction in average time spent logging a downtime event"
+        },
+        {
+          "value": "7 min",
+          "label": "saved per hour on separate digital form entry across the line"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "An easier operator flow"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Previously, filling in reasons for every micro-stop meant tapping into each segment individually, and the pop-up dropdown often didn't fit the screen, requiring scrolling — making the flow overwhelming."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "This has been simplified: tapping any segment (uptime, downtime, or other) now shows all downtime segments at once, letting the operator fill in reasons immediately. The relevant bar segment also highlights, so it’s always clear which segment the reason is being entered for."
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "href": "https://www.linkedin.com/posts/patternlab-ai_patternlab-godrej-jersey-case-study-activity-7396057308323045376-qeP5?utm_source=share&utm_medium=member_android&rcm=ACoAACpadWoBKUkgqQtjlZwSV2B1M-o1iHILkHI",
+      "label": "Read the client testimonial on LinkedIn"
+    }
+  ],
+  "glance": [
+    {
+      "label": "Product",
+      "value": "PatternLab Factory Intelligence"
+    },
+    {
+      "label": "Category",
+      "value": "Downtime Analytics"
+    },
+    {
+      "label": "Setting",
+      "value": "Dairy line running 24 hours a day"
+    },
+    {
+      "label": "Impact",
+      "value": "68% less time per downtime log"
+    }
+  ],
+  "tldr": "On a 24-hour dairy line, operators were spending more time filling downtime forms than running the line. I redesigned the machine timeline so every micro-stop can be identified and logged from one place — cutting the average time to log a downtime event by 68%."
+}

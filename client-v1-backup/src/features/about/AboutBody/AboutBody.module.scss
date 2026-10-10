@@ -1,0 +1,46 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+  max-width: $bp-lg;
+
+  @media (max-width: $bp-md) {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.copy {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.05rem;
+  min-width: 0;
+}
+
+.facts {
+  margin-top: 20px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.portrait {
+  flex: 0 0 320px;
+  width: 320px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $radius-lg;
+  }
+
+  @media (max-width: $bp-md) {
+    width: 100%;
+    max-width: 320px;
+    flex: none;
+  }
+}

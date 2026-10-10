@@ -1,0 +1,22 @@
+@use '../../../styles/mixins' as *;
+
+.card {
+  width: 220px;
+  padding: 10px 10px 14px;
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px var(--shadow);
+}
+
+.mock {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.label {
+  @include mono-label;
+  margin-top: 8px;
+  font-size: 0.68rem;
+  text-align: center;
+}

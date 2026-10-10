@@ -1,17 +1,154 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-ink) 50%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
 .footer {
+  max-width: $bp-xl;
+  margin: 0 auto;
+  padding: 40px $page-padding-md 28px;
+
+  @media (max-width: $bp-md) {
+    padding: 24px $page-padding-sm 20px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 56px;
+  border-radius: $radius-xl;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  @include spotlight($size: 520px);
+  overflow: hidden;
+
+  @media (max-width: $bp-md) {
+    padding: 32px 24px;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 10px;
+  border-radius: $radius-pill;
+  background: var(--primary-soft);
+  color: var(--primary-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-ink);
+  animation: pulse 2s ease-out infinite;
+}
+
+.title {
+  @include serif;
+  max-width: 720px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.12;
+
+  em {
+    font-style: italic;
+    color: var(--accent);
+  }
+}
+
+// Big mailto link with a pastel underline that grows on hover.
+.email {
+  position: relative;
+  font-size: clamp(1.05rem, 2.6vw, 1.5rem);
+  font-weight: 600;
+  color: var(--ink);
+  word-break: break-all;
+  background: linear-gradient(var(--primary-soft), var(--primary-soft)) no-repeat 0 100% / 100% 0.35em;
+  transition: background-size 0.4s $ease-out;
+  @include focus-ring;
+
+  &:hover {
+    background-size: 100% 100%;
+  }
+}
+
+.actions {
+  @include button-row;
+  margin-top: 8px;
+
+  @media (max-width: $bp-btn) {
+    width: 100%;
+  }
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.socialsLabel {
+  @include mono-label;
+  margin-right: 4px;
+}
+
+.socialButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--neutral-soft);
+  color: var(--ink);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.4s $ease-spring;
+  @include focus-ring;
+
+  &:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    transform: translateY(-4px) rotate(-6deg);
+  }
+
+  &:active {
+    transform: scale(0.88);
+    transition-duration: 0.1s;
+  }
+}
+
+.bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px $page-padding-md;
-  border-top: 1px solid var(--border);
+  gap: 16px;
+  padding: 24px 8px 0;
 
   @media (max-width: $bp-md) {
-    flex-direction: column;
-    gap: 12px;
-    padding: 24px $page-padding-sm;
+    flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
   }
 }
@@ -20,15 +157,56 @@
   @include mono-label;
 }
 
-.socials {
+.links {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
 }
 
-.social {
-  @include mono-label;
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: $radius-pill;
+  color: var(--body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+  @include focus-ring;
 
   &:hover {
-    color: var(--ink);
+    background: var(--neutral-soft);
+    color: var(--neutral-ink);
+  }
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    transform 0.35s $ease-spring,
+    background 0.25s ease;
+  @include focus-ring;
+
+  &:hover {
+    background: var(--neutral-soft);
+    color: var(--neutral-ink);
+    transform: translateY(-4px);
+  }
+
+  &:active {
+    transform: scale(0.88);
   }
 }

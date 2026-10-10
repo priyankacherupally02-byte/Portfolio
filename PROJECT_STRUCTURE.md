@@ -121,7 +121,7 @@ Portfolio/
 |---|---|---|
 | `/` | HomePage | MainLayout |
 | `/work` | WorkPage | MainLayout |
-| `/work/:slug` | ProjectPage | MainLayout |
+| `/work/:slug` | CaseStudyPage | MainLayout |
 | `/about` | AboutPage | MainLayout |
 | `/skills` | SkillsPage | MainLayout |
 | `/path` | PathPage | MainLayout |

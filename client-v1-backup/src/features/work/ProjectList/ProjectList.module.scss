@@ -1,0 +1,62 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+
+  &:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  @include serif;
+  font-size: 1.6rem;
+  color: var(--ink);
+}
+
+.subtitle {
+  @include mono-label;
+}
+
+.summary {
+  max-width: 640px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  @include mono-label;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: $radius-pill;
+}
+
+.link {
+  @include mono-label;
+  color: var(--accent);
+  width: fit-content;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

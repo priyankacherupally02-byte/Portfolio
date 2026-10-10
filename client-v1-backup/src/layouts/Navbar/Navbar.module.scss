@@ -1,0 +1,125 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px $page-padding-md;
+  background: color-mix(in srgb, var(--paper) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+
+  @media (max-width: $bp-md) {
+    padding: 10px $page-padding-sm;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.mark {
+  height: 56px;
+  width: auto;
+  transition: filter $ease-out 0.2s;
+
+  @media (max-width: $bp-md) {
+    height: 40px;
+  }
+}
+
+// The source art has an opaque light background baked in — inverting it in
+// dark mode turns that into a near-black fill instead of a mismatched light
+// box floating in the dark navbar.
+:global(html[data-theme='dark']) .mark {
+  filter: invert(1);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  @media (max-width: $bp-md) {
+    display: none;
+  }
+}
+
+.link {
+  @include mono-label;
+  color: var(--body);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.themeToggle,
+.menuToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-pill;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--ink);
+  }
+}
+
+.menuToggle {
+  display: none;
+
+  @media (max-width: $bp-md) {
+    display: inline-flex;
+  }
+}
+
+.drawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 8px $page-padding-sm 16px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+
+  @media (min-width: $bp-md + 1) {
+    display: none;
+  }
+}
+
+.drawerLink {
+  @include mono-label;
+  padding: 14px 0;
+  color: var(--body);
+  border-bottom: 1px solid var(--border);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    color: var(--ink);
+  }
+}

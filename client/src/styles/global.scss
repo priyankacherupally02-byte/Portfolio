@@ -1,25 +1,52 @@
+// Two-colour system on one backdrop:
+//   primary  = soft violet  (actions, active states, highlights)
+//   neutral  = warm stone   (cards, chips, quiet hovers)
+// `--accent` is the solid primary; `-soft` is the pale tint; `-ink` is the
+// readable text tone on top of the matching soft tint.
 :root {
-  --paper: #f5f3ee;
-  --ink: #111111;
-  --body: #4a4a46;
-  --muted: #8c897f;
-  --accent: #b5603d;
-  --border: rgba(17, 17, 17, 0.12);
+  --paper: #fcfcfa;
+  --paper-2: #f4f3f0;
   --surface: #ffffff;
   --surface-raised: #ffffff;
-  --shadow: rgba(17, 17, 17, 0.08);
+  --ink: #1f1e24;
+  --body: #4d4b52;
+  --muted: #88858c;
+  --border: rgba(31, 30, 36, 0.1);
+  --border-strong: rgba(31, 30, 36, 0.22);
+  --shadow: rgba(60, 50, 110, 0.1);
+
+  --accent: #6f5bd8;
+  --accent-ink: #ffffff;
+  --primary-soft: #ece8fa;
+  --primary-ink: #4b3bb0;
+
+  --neutral-soft: #f3f1ed;
+  --neutral-ink: #5e5a52;
+
+  color-scheme: light;
 }
 
 :root[data-theme='dark'] {
-  --paper: #121212;
-  --ink: #f5f3ee;
-  --body: #c7c4ba;
-  --muted: #8c897f;
-  --accent: #e2855f;
-  --border: rgba(245, 243, 238, 0.12);
-  --surface: #1a1a1a;
-  --surface-raised: #202020;
-  --shadow: rgba(0, 0, 0, 0.35);
+  --paper: #141317;
+  --paper-2: #1a191e;
+  --surface: #1d1c22;
+  --surface-raised: #24232a;
+  --ink: #f2f0eb;
+  --body: #c4c2c9;
+  --muted: #8d8a93;
+  --border: rgba(242, 240, 235, 0.1);
+  --border-strong: rgba(242, 240, 235, 0.24);
+  --shadow: rgba(0, 0, 0, 0.4);
+
+  --accent: #a898f7;
+  --accent-ink: #15131f;
+  --primary-soft: #2a2545;
+  --primary-ink: #c9bef7;
+
+  --neutral-soft: #26252b;
+  --neutral-ink: #b9b5ad;
+
+  color-scheme: dark;
 }
 
 * {
@@ -30,6 +57,12 @@ html,
 body {
   padding: 0;
   margin: 0;
+  // Guards against full-bleed sections that break out to 100vw, which runs
+  // wider than the viewport once a vertical scrollbar is present (100vw
+  // includes the scrollbar's own width). Clips the resulting sliver rather
+  // than letting it add a horizontal scrollbar. `clip`, not `hidden`: hidden
+  // turns body into a scroll container, which breaks `position: sticky`.
+  overflow-x: clip;
 }
 
 body {
@@ -38,6 +71,40 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+// One faint primary wash fixed behind everything — the same backdrop on every page.
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(60% 45% at 85% 0%, var(--primary-soft) 0%, transparent 70%);
+  opacity: 0.35;
+}
+
+:root[data-theme='dark'] body::before {
+  opacity: 0.8;
+}
+
+// Content sits above the cursor glow (z-index 0, see layouts/Cursor).
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+// Custom cursor replaces the native one only on fine pointers (set by layouts/Cursor).
+html[data-cursor='custom'],
+html[data-cursor='custom'] * {
+  cursor: none !important;
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--primary-ink);
 }
 
 h1,
@@ -77,4 +144,12 @@ svg {
 
 #root {
   min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
 }

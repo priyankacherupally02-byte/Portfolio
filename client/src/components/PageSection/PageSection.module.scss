@@ -12,11 +12,10 @@
 
 .hero {
   padding-top: 120px;
-  padding-bottom: 96px;
+  padding-bottom: 64px;
   min-height: 70vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   @media (max-width: $bp-md) {
     padding-top: 96px;

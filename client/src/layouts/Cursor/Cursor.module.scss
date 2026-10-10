@@ -1,0 +1,158 @@
+@use '../../styles/variables' as *;
+
+.root {
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &[data-visible='false'] {
+    opacity: 0;
+  }
+}
+
+.glow,
+.ring,
+.dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+// Sits under page content (main/footer are z-index 1), above the dew background.
+.glow {
+  z-index: 0;
+  width: 0;
+  height: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    margin: -280px 0 0 -280px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--primary-soft) 90%, transparent) 0%,
+      color-mix(in srgb, var(--neutral-soft) 70%, transparent) 38%,
+      transparent 70%
+    );
+    filter: blur(30px);
+    opacity: 0.8;
+  }
+}
+
+.ring {
+  z-index: 9999;
+}
+
+.ringShape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  background: transparent;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.35s $ease-spring,
+    height 0.35s $ease-spring,
+    border-radius 0.35s $ease-out,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s $ease-out;
+}
+
+.label {
+  padding: 0 10px;
+  color: var(--accent-ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s $ease-spring;
+}
+
+.dot {
+  z-index: 10000;
+}
+
+.dotShape {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--ink);
+  transition:
+    transform 0.25s $ease-spring,
+    opacity 0.2s ease;
+}
+
+.root[data-state='hover'] {
+  .ringShape {
+    width: 58px;
+    height: 58px;
+    border-color: transparent;
+    background: color-mix(in srgb, var(--primary-soft) 70%, transparent);
+  }
+
+  .dotShape {
+    transform: scale(1.4);
+    background: var(--primary-ink);
+  }
+}
+
+.root[data-state='label'] {
+  .ringShape {
+    width: 96px;
+    height: 96px;
+    border-color: transparent;
+    background: var(--accent);
+  }
+
+  .label {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .dotShape {
+    opacity: 0;
+  }
+}
+
+.root[data-state='text'] {
+  .ringShape {
+    width: 4px;
+    height: 30px;
+    border-radius: 2px;
+    border-color: transparent;
+    background: var(--accent);
+  }
+
+  .dotShape {
+    opacity: 0;
+  }
+}
+
+.root[data-pressed='true'] {
+  .ringShape {
+    transform: translate(-50%, -50%) scale(0.78);
+  }
+
+  .dotShape {
+    transform: scale(0.6);
+  }
+}

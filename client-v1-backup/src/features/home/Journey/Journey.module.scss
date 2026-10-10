@@ -1,0 +1,56 @@
+@use '../../../styles/variables' as *;
+
+.root {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gutter {
+  position: absolute;
+  width: 72px;
+  // Hidden until JS switches it to `position: fixed` with an explicit box
+  // once scrolled past the hero — before that it has no top/height set at
+  // all, but this is a belt-and-suspenders guard against ever flashing a
+  // stray box at its default static position.
+  opacity: 0;
+
+  // The gutter needs real horizontal room beside the content column without
+  // overlapping it — below this width that stops being reliable, so the
+  // stream/hover-preview part of the journey stays desktop-only. The boat's
+  // one-time hero crossing (.boat below) stays visible at every width.
+  @media (max-width: 1439px) {
+    display: none;
+  }
+}
+
+.boat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130px;
+  will-change: transform;
+
+  @media (max-width: $bp-md) {
+    width: 108px;
+  }
+}
+
+.popup {
+  position: fixed;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.96);
+  transition: opacity 0.2s, transform 0.2s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  @media (max-width: 1439px) {
+    display: none;
+  }
+}

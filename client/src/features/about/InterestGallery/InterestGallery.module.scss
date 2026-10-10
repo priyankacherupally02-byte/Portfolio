@@ -1,0 +1,118 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.gallery {
+  // Room for the back photos of deeper stacks, which sit above the front one.
+  padding-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: center;
+  gap: 52px 24px;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+
+  @media (max-width: $bp-sm) {
+    width: 165px;
+  }
+}
+
+.stack {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform $ease-out 0.25s;
+
+  &:hover,
+  &:focus-within {
+    transform: rotate(0deg) scale(1.08);
+    z-index: 2;
+  }
+}
+
+button.stack {
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.4s $ease-spring;
+
+  &:active {
+    transform: rotate(0deg) scale(0.97);
+    transition-duration: 0.1s;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
+  }
+}
+
+.layerFront,
+.layerBack {
+  position: absolute;
+  inset: 0;
+  padding: 10px 10px 10px;
+  background: var(--surface);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: transform $ease-out 0.25s, box-shadow $ease-out 0.25s;
+}
+
+.layerFront {
+  transform: translate(0, 0) rotate(0deg);
+}
+
+.layerBack {
+  transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--drot, 0deg));
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.caption {
+  margin-top: 18px;
+  padding: 5px 14px;
+  border-radius: $radius-pill;
+  background: var(--neutral-soft);
+  color: var(--neutral-ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.dot,
+.dotActive {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.dotActive {
+  background: var(--neutral-ink);
+}

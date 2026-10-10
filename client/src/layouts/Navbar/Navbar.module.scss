@@ -1,59 +1,286 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+@keyframes spin-in {
+  from {
+    transform: rotate(-120deg) scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
+  padding: 14px $page-padding-md 0;
+  transition: padding 0.4s $ease-out;
+
+  @media (max-width: $bp-md) {
+    padding: 10px $page-padding-sm 0;
+  }
+}
+
+// Floating glass pill; tightens and gains a shadow once the page is scrolled.
+.bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px $page-padding-md;
-  background: color-mix(in srgb, var(--paper) 85%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  max-width: $bp-xl;
+  margin: 0 auto;
+  padding: 6px 8px 6px 18px;
+  border: 1px solid transparent;
+  border-radius: $radius-pill;
+  background: transparent;
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    padding 0.4s $ease-out;
+
+  .scrolled & {
+    background: color-mix(in srgb, var(--surface) 72%, transparent);
+    border-color: var(--border);
+    box-shadow: 0 12px 32px -14px var(--shadow);
+    backdrop-filter: blur(14px) saturate(1.4);
+  }
 
   @media (max-width: $bp-md) {
-    padding: 16px $page-padding-sm;
+    padding: 4px 6px 4px 12px;
   }
 }
 
 .brand {
-  @include serif;
-  font-size: 1.1rem;
-  color: var(--ink);
+  display: flex;
+  align-items: center;
+  border-radius: $radius-sm;
+  transition: transform 0.4s $ease-spring;
+  @include focus-ring;
+
+  &:hover {
+    transform: rotate(-4deg) scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+}
+
+.mark {
+  height: 46px;
+  width: auto;
+  // Source art has an opaque light background — multiply drops it onto the pastel bar.
+  mix-blend-mode: multiply;
+
+  @media (max-width: $bp-md) {
+    height: 38px;
+  }
+}
+
+// The source art has an opaque light background baked in — inverting it in
+// dark mode turns that into a near-black fill, and screen blending drops it.
+:global(html[data-theme='dark']) .mark {
+  filter: invert(1);
+  mix-blend-mode: screen;
 }
 
 .links {
   display: flex;
   align-items: center;
-  gap: 28px;
-}
+  gap: 4px;
+  padding: 4px;
+  border-radius: $radius-pill;
+  background: color-mix(in srgb, var(--paper-2) 70%, transparent);
 
-.link {
-  @include mono-label;
-  color: var(--body);
-
-  &:hover {
-    color: var(--ink);
+  @media (max-width: $bp-md) {
+    display: none;
   }
 }
 
-.themeToggle {
+.link {
+  position: relative;
+  padding: 8px 18px;
+  border-radius: $radius-pill;
+  color: var(--body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.3s $ease-spring;
+  @include focus-ring;
+
+  &:hover {
+    color: var(--ink);
+    background: color-mix(in srgb, var(--surface) 80%, transparent);
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+}
+
+.linkActive {
+  color: var(--primary-ink);
+  background: var(--primary-soft);
+  box-shadow: 0 6px 16px -8px var(--primary-ink);
+
+  &:hover {
+    color: var(--primary-ink);
+    background: var(--primary-soft);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: $radius-pill;
   border: 1px solid var(--border);
-  background: transparent;
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
   color: var(--ink);
   cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.35s $ease-spring;
+  @include focus-ring;
 
   &:hover {
-    border-color: var(--ink);
+    background: var(--neutral-soft);
+    border-color: var(--neutral-soft);
+    color: var(--neutral-ink);
+    transform: rotate(12deg);
+  }
+
+  &:active {
+    transform: scale(0.88);
+  }
+}
+
+.themeIcon {
+  display: inline-flex;
+  animation: spin-in 0.5s $ease-spring;
+}
+
+.talk {
+  padding: 9px 20px;
+  font-size: 0.85rem;
+
+  @media (max-width: $bp-md) {
+    display: none;
+  }
+}
+
+.menuToggle {
+  display: none;
+
+  @media (max-width: $bp-md) {
+    display: inline-flex;
+  }
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 10px auto 0;
+  padding: 10px;
+  border-radius: $radius-lg;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 24px 60px -16px var(--shadow);
+  transform-origin: top center;
+  animation: drawer-in 0.35s $ease-out;
+
+  @media (min-width: $bp-md + 1) {
+    display: none;
+  }
+}
+
+.drawerLink {
+  @include serif;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: $radius-md;
+  color: var(--ink);
+  font-size: 1.6rem;
+  opacity: 0;
+  animation: item-in 0.4s $ease-out forwards;
+  transition:
+    background 0.2s ease,
+    transform 0.25s $ease-spring;
+
+  &:active {
+    transform: scale(0.97);
+    background: var(--neutral-soft);
+  }
+}
+
+.drawerLinkActive {
+  background: var(--primary-soft);
+  color: var(--primary-ink);
+}
+
+.drawerIndex {
+  @include mono-label;
+  font-size: 0.68rem;
+}
+
+.drawerMail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 14px;
+  border-radius: $radius-pill;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  opacity: 0;
+  animation: item-in 0.4s $ease-out forwards;
+  transition: transform 0.25s $ease-spring;
+
+  &:active {
+    transform: scale(0.96);
   }
 }

@@ -1,0 +1,214 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// Whole card is the link. Rest: soft tint wash; hover: lifts, tint deepens,
+// spotlight follows the cursor, arrow turns; press: sinks back down.
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1.1fr) minmax(0, 1fr) 56px;
+  grid-template-areas: 'index heading body arrow';
+  align-items: center;
+  gap: 28px;
+  padding: 32px 32px;
+  border-radius: $radius-xl;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  @include spotlight($color: var(--surface), $size: 360px);
+  transition:
+    transform 0.45s $ease-spring,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+  @include focus-ring;
+
+  &:hover {
+    background-color: var(--primary-soft);
+    border-color: var(--primary-soft);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 40px -24px var(--primary-ink);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.985);
+    transition-duration: 0.12s;
+  }
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    grid-template-areas:
+      'index heading arrow'
+      'index body body';
+    row-gap: 14px;
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: minmax(0, 1fr) 44px;
+    grid-template-areas:
+      'index arrow'
+      'heading heading'
+      'body body';
+    padding: 24px;
+    gap: 14px;
+  }
+}
+
+.index {
+  @include serif;
+  grid-area: index;
+  align-self: start;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--muted);
+  opacity: 0.6;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
+
+  .card:hover & {
+    opacity: 1;
+    color: var(--primary-ink);
+  }
+}
+
+.heading {
+  grid-area: heading;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.subtitle {
+  @include mono-label;
+  color: var(--neutral-ink);
+}
+
+.title {
+  @include serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.body {
+  grid-area: body;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summary {
+  color: var(--body);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: $radius-pill;
+  background: var(--neutral-soft);
+  color: var(--neutral-ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.arrow {
+  grid-area: arrow;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--neutral-soft);
+  color: var(--ink);
+  transition:
+    transform 0.45s $ease-spring,
+    background 0.3s ease,
+    color 0.3s ease;
+
+  .card:hover & {
+    transform: rotate(45deg) scale(1.08);
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  @media (max-width: $bp-md) {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+// ── Hover preview (follows the pointer; see HoverPreview in index.js) ───────
+
+// Width must match PREVIEW_WIDTH, offset must match PREVIEW_GAP.
+.preview {
+  --px: -999px;
+  --py: -999px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 400px;
+  aspect-ratio: 2 / 1;
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 30px 60px -24px var(--primary-ink);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(calc(var(--px) + 32px), calc(var(--py) - 50%), 0) rotate(-4deg) scale(0.85);
+  transition:
+    transform 0.35s $ease-out,
+    opacity 0.25s ease;
+
+  &[data-flip='true'] {
+    transform: translate3d(calc(var(--px) - 100% - 32px), calc(var(--py) - 50%), 0) rotate(4deg) scale(0.85);
+  }
+}
+
+.previewVisible {
+  opacity: 1;
+  transform: translate3d(calc(var(--px) + 32px), calc(var(--py) - 50%), 0) rotate(-2deg) scale(1);
+
+  &[data-flip='true'] {
+    transform: translate3d(calc(var(--px) - 100% - 32px), calc(var(--py) - 50%), 0) rotate(2deg) scale(1);
+  }
+}
+
+.previewImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.3s ease,
+    transform 0.6s $ease-out;
+}
+
+.previewImageActive {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview,
+  .previewImage {
+    transition: opacity 0.2s ease;
+  }
+}

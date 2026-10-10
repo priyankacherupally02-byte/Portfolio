@@ -19,6 +19,23 @@
   margin-bottom: 12px;
 }
 
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+
+// Card that lights up under the pointer. The global Cursor component writes
+// --spot-x / --spot-y onto any [data-spotlight] element under the mouse.
+@mixin spotlight($color: var(--primary-soft), $size: 420px) {
+  background-image: radial-gradient(
+    $size circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    color-mix(in srgb, #{$color} 85%, transparent),
+    transparent 65%
+  );
+}
+
 // Must be included at the root of the .module.scss that uses the animation —
 // CSS Modules hashes the name referenced in `animation`, so a shared
 // @keyframes in global.scss never matches.

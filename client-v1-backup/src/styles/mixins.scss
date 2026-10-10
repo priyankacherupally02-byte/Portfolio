@@ -1,0 +1,78 @@
+@use 'variables' as *;
+
+@mixin mono-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@mixin serif {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+}
+
+@mixin group-title {
+  @include mono-label;
+  margin-bottom: 12px;
+}
+
+// Must be included at the root of the .module.scss that uses the animation —
+// CSS Modules hashes the name referenced in `animation`, so a shared
+// @keyframes in global.scss never matches.
+@mixin rise-keyframes($name: rise) {
+  @keyframes #{$name} {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin word-keyframes($name: word-in) {
+  @keyframes #{$name} {
+    from {
+      opacity: 0;
+      transform: translateY(0.4em);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin page-in-keyframes($name: page-in) {
+  @keyframes #{$name} {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin rise($name: rise, $duration: 0.6s, $delay: 0s) {
+  @include rise-keyframes($name);
+  opacity: 0;
+  animation: #{$name} $duration $ease-out $delay forwards;
+}
+
+@mixin button-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  @media (max-width: $bp-btn) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

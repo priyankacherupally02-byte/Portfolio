@@ -1,0 +1,24 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.head {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.number {
+  @include serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.08;
+}
+
+.title {
+  @include serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--ink);
+}

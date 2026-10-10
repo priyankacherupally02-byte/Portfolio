@@ -1,0 +1,14 @@
+@use '../../../styles/variables' as *;
+
+.strip {
+  position: absolute;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  bottom: 0;
+  height: 160px;
+
+  @media (max-width: $bp-md) {
+    height: 110px;
+  }
+}
