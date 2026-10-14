@@ -6,6 +6,12 @@ export const SECTIONS = {
     intro:
       'Three real problems I solved by turning messy, real-world workflows into clear screens — each with the full story behind the design.',
   },
+  side: {
+    eyebrow: 'Side hustle',
+    title: 'Beyond design',
+    intro:
+      'Where I own the whole picture: brand, content, video, growth, and the website — and measure it in real enquiries and sales.',
+  },
   about: {
     eyebrow: 'About',
     title: 'Real problems, simple solutions',

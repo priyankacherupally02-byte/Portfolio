@@ -130,8 +130,8 @@
   padding: 8px 18px;
   border-radius: $radius-pill;
   color: var(--body);
-  font-size: 0.88rem;
-  font-weight: 600;
+  @include text-sm;
+  font-weight: $weight-strong;
   transition:
     color 0.25s ease,
     background 0.25s ease,
@@ -201,7 +201,7 @@
 
 .talk {
   padding: 9px 20px;
-  font-size: 0.85rem;
+  @include text-sm;
 
   @media (max-width: $bp-md) {
     display: none;
@@ -235,14 +235,13 @@
 }
 
 .drawerLink {
-  @include serif;
+  @include heading-2;
   display: flex;
   align-items: baseline;
   gap: 14px;
   padding: 14px 16px;
   border-radius: $radius-md;
   color: var(--ink);
-  font-size: 1.6rem;
   opacity: 0;
   animation: item-in 0.4s $ease-out forwards;
   transition:
@@ -261,8 +260,7 @@
 }
 
 .drawerIndex {
-  @include mono-label;
-  font-size: 0.68rem;
+  @include label;
 }
 
 .drawerMail {
@@ -275,7 +273,7 @@
   border-radius: $radius-pill;
   background: var(--accent);
   color: var(--accent-ink);
-  font-weight: 600;
+  font-weight: $weight-strong;
   opacity: 0;
   animation: item-in 0.4s $ease-out forwards;
   transition: transform 0.25s $ease-spring;

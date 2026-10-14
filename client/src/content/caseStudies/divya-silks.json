@@ -1,0 +1,682 @@
+{
+  "slug": "divya-silks",
+  "headline": "Building a brand's online presence from scratch",
+  "glance": [
+    {
+      "label": "Role",
+      "value": "Solo, end-to-end owner"
+    },
+    {
+      "label": "Timeline",
+      "value": "2 months · ongoing"
+    },
+    {
+      "label": "Business",
+      "value": "Saree & handloom store, since 2003"
+    },
+    {
+      "label": "Channels",
+      "value": "Instagram · YouTube · Threads · Web"
+    }
+  ],
+  "tldr": "A trusted, family-run saree store in Hyderabad had no online presence at all. Alongside my full-time design role, I built it from zero: brand identity, AI-powered content, a constant stream of Reels and Shorts, and a website. In two months: 95 posts and Shorts across Instagram and YouTube, and 3.2K+ Instagram views a month.",
+  "links": [
+    {
+      "label": "View on Instagram",
+      "href": "https://instagram.com/divya_silks_"
+    },
+    {
+      "label": "Visit the website",
+      "href": "",
+      "draft": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Overview",
+      "id": "overview"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Alongside my full-time work as a UI/UX designer, I started a side hustle 2 months ago: building the online presence of "
+        },
+        {
+          "text": "Divya Silks",
+          "bold": true
+        },
+        {
+          "text": ", a family-run saree and handloom store in Uppal, Hyderabad, trusted since 2003. There was no existing digital presence, no brand system, and no content, so I built everything from scratch."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "My goal: ",
+          "bold": true
+        },
+        {
+          "text": "grow online reach and turn views into real enquiries and sales."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "My role: ",
+          "bold": true
+        },
+        {
+          "text": "solo, end-to-end owner. Brand strategist, social media manager, content creator, video editor, graphic designer, web designer, and growth marketer."
+        }
+      ]
+    },
+    {
+      "type": "tools",
+      "groups": [
+        {
+          "label": "Design & publishing",
+          "items": [
+            "Figma",
+            "Instagram",
+            "YouTube",
+            "Meta Business Suite",
+            "VS Code"
+          ]
+        },
+        {
+          "label": "Video editing",
+          "items": [
+            "VN Video Editor",
+            "Edits",
+            "CapCut"
+          ]
+        },
+        {
+          "label": "AI tools",
+          "accent": true,
+          "items": [
+            "ChatGPT",
+            "Gemini",
+            "Claude",
+            "Higgsfield"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The challenge",
+      "id": "the-challenge"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Strong offline trust, built over two decades, but none of it was visible online."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Zero digital visibility",
+            "bold": true
+          },
+          {
+            "text": " despite a loyal offline customer base"
+          }
+        ],
+        [
+          {
+            "text": "Starting from nothing:",
+            "bold": true
+          },
+          {
+            "text": " no brand identity, no content, no website"
+          }
+        ],
+        [
+          {
+            "text": "No way to browse:",
+            "bold": true
+          },
+          {
+            "text": " customers could not see the collection online"
+          }
+        ],
+        [
+          {
+            "text": "No system",
+            "bold": true
+          },
+          {
+            "text": " for content, posting, or measuring results"
+          }
+        ],
+        [
+          {
+            "text": "Limited budget,",
+            "bold": true
+          },
+          {
+            "text": " so every effort had to be organic and resourceful"
+          }
+        ],
+        [
+          {
+            "text": "Limited time:",
+            "bold": true
+          },
+          {
+            "text": " managing it all alongside a full-time role"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "My approach",
+      "id": "my-approach"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Nine workstreams, run by one person. Each one closes a gap between a customer scrolling Instagram and a customer walking into the store."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "items": [
+        {
+          "title": "Brand identity",
+          "segments": [
+            {
+              "text": "Explored several logo directions before finalising the mark, then created a consistent visual language: logo usage, watermarking on every post, and a premium, warm aesthetic suited to silk and handloom products."
+            }
+          ]
+        },
+        {
+          "title": "Content strategy",
+          "segments": [
+            {
+              "text": "Planned a consistent posting calendar focused on short-form saree videos showcasing drape, texture, and craft, published as Instagram Reels and YouTube Shorts."
+            }
+          ]
+        },
+        {
+          "title": "AI-powered content creation",
+          "segments": [
+            {
+              "text": "Used "
+            },
+            {
+              "text": "Higgsfield",
+              "bold": true
+            },
+            {
+              "text": " for AI-generated visuals and video, and "
+            },
+            {
+              "text": "ChatGPT, Gemini, and Claude",
+              "bold": true
+            },
+            {
+              "text": " for captions, content ideas, and marketing copy. This let me produce high-quality content quickly as a one-person team."
+            }
+          ]
+        },
+        {
+          "title": "Video production & editing",
+          "segments": [
+            {
+              "text": "Constantly shooting new sarees in store and editing them into Shorts and Reels in "
+            },
+            {
+              "text": "VN Video Editor, Edits, and CapCut",
+              "bold": true
+            },
+            {
+              "text": ", with a consistent look, background, framing, and watermark to build a recognisable feed."
+            }
+          ]
+        },
+        {
+          "title": "Story marketing",
+          "segments": [
+            {
+              "text": "Posted Instagram Stories daily to stay visible and drive engagement. Organised Story Highlights by collection (Ajrak, Banarasi, Jamdani, and more) so customers can browse like a catalogue."
+            }
+          ]
+        },
+        {
+          "title": "Poster & graphic design",
+          "segments": [
+            {
+              "text": "Designed promotional posters for collections, offers, and festive seasons."
+            }
+          ]
+        },
+        {
+          "title": "Collaborations",
+          "segments": [
+            {
+              "text": "Partnered with creators and other accounts to reach new audiences."
+            }
+          ]
+        },
+        {
+          "title": "Profile optimisation",
+          "segments": [
+            {
+              "text": "Rewrote the bio with a clear category, a trust signal (\"Trusted Since 2003\"), the store location, and links to YouTube and Threads."
+            }
+          ]
+        },
+        {
+          "title": "Website",
+          "segments": [
+            {
+              "text": "Designed and built a website from scratch using "
+            },
+            {
+              "text": "Claude and VS Code",
+              "bold": true
+            },
+            {
+              "text": " so customers can explore the collection and contact the store, creating a path from social media to purchase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flow",
+      "title": "The always-on content loop",
+      "steps": [
+        "Shoot in store",
+        "Edit in VN, Edits & CapCut",
+        "Publish to Instagram & YouTube",
+        "Repeat"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The work",
+      "id": "the-work"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Logo exploration"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Before landing on the final loom-and-charkha mark, I explored six directions, from elephant motifs to a temple-and-paisley crest, a weaving-shuttle monogram, a flowing saree, and a minimal thread-spool mark. I tested how each one felt at profile-picture size and as a watermark."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "columns": 3,
+      "items": [
+        {
+          "file": "logo-concept-1.jpg",
+          "width": 1024,
+          "height": 1024,
+          "caption": "Elephant medallion"
+        },
+        {
+          "file": "logo-concept-2.jpg",
+          "width": 1024,
+          "height": 1024,
+          "caption": "Elephant with a pallu drape"
+        },
+        {
+          "file": "logo-concept-3.jpg",
+          "width": 600,
+          "height": 600,
+          "caption": "Temple & paisley crest"
+        },
+        {
+          "file": "logo-concept-4.jpg",
+          "width": 600,
+          "height": 600,
+          "caption": "Shuttle & cotton monogram"
+        },
+        {
+          "file": "logo-concept-5.jpg",
+          "width": 600,
+          "height": 600,
+          "caption": "Flowing saree wordmark"
+        },
+        {
+          "file": "logo-concept-6.jpg",
+          "width": 600,
+          "height": 600,
+          "caption": "Thread-spool monogram"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The final mark",
+          "bold": true
+        },
+        {
+          "text": " turns the \"D\" of Divya into a handloom: a loom frame, a charkha, and a flowing saree border, in gold on deep navy. It reads as heritage and craft at a glance, holds up as a small profile picture, and works as a watermark on every post."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "label": "Final logo",
+      "accent": true,
+      "columns": 2,
+      "items": [
+        {
+          "file": "logo-final.jpg",
+          "width": 1200,
+          "height": 1200,
+          "caption": "Divya Silks: Handlooms & Textiles"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Festival & general posters"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Festive greetings keep the store present during peak saree-buying seasons, and event posters drive footfall. Every poster carries the logo, the store address, and the same warm, premium look."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "columns": 3,
+      "items": [
+        {
+          "file": "poster-ganesh-chaturthi.jpg",
+          "width": 900,
+          "height": 1600,
+          "caption": "Ganesh Chaturthi greeting"
+        },
+        {
+          "file": "poster-dasara.jpg",
+          "width": 899,
+          "height": 1600,
+          "caption": "Dasara greeting with collections and address"
+        },
+        {
+          "file": "poster-grand-opening.jpg",
+          "width": 1080,
+          "height": 1350,
+          "caption": "Grand opening announcement"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Instagram: the profile and the feed"
+    },
+    {
+      "type": "phones",
+      "items": [
+        {
+          "file": "instagram-profile.jpg",
+          "width": 720,
+          "height": 1600,
+          "caption": "Optimised profile: category, trust signal, location, links, and highlights by collection"
+        },
+        {
+          "file": "reel-grid.jpg",
+          "width": 720,
+          "height": 1600,
+          "caption": "A consistent reel grid: same framing, warm backdrop, and watermark on every post"
+        },
+        {
+          "draft": true,
+          "caption": "Story highlights, opened as a collection catalogue"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "YouTube Shorts"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Every edit is repurposed as a YouTube Short, so the same shoot reaches a second audience. Close-ups of pallus and weaves, plus the store contact on screen, turn each Short into a mini catalogue page."
+        }
+      ]
+    },
+    {
+      "type": "phones",
+      "items": [
+        {
+          "file": "youtube-channel.jpg",
+          "width": 720,
+          "height": 1600,
+          "caption": "The Divya Silks channel: 47 Shorts in ~2 months"
+        },
+        {
+          "file": "youtube-shorts.jpg",
+          "width": 720,
+          "height": 1600,
+          "caption": "Shorts grid, with the top Short past 1.2K views"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Website",
+      "draft": true
+    },
+    {
+      "type": "placeholder",
+      "draft": true,
+      "label": "Website screenshots",
+      "hint": "Home and collection pages",
+      "count": 2,
+      "aspect": "16 / 10"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Results",
+      "id": "results"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Two months in, with no ad spend, the store went from invisible to a steady, growing presence."
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        {
+          "value": "3.2K+",
+          "label": "Instagram views in the last 30 days"
+        },
+        {
+          "value": "95",
+          "label": "posts and Shorts published across Instagram and YouTube in ~2 months"
+        },
+        {
+          "value": "1.2K",
+          "label": "views on the top YouTube Short; top Reels reach 250+, all organic"
+        },
+        {
+          "value": "4",
+          "label": "platforms built from zero: Instagram, YouTube, Threads, and a website"
+        },
+        {
+          "value": "—",
+          "label": "Customer enquiries / DMs received (add number)",
+          "draft": true
+        },
+        {
+          "value": "—",
+          "label": "Website visits or sales generated (add if available)",
+          "draft": true
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What's next",
+      "id": "whats-next"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Improving conversion:",
+            "bold": true
+          },
+          {
+            "text": " turning profile visits and website traffic into enquiries and orders with clearer CTAs, WhatsApp ordering, and better product pages"
+          }
+        ],
+        [
+          {
+            "text": "Paid growth:",
+            "bold": true
+          },
+          {
+            "text": " exploring paid ads and audience targeting"
+          }
+        ],
+        [
+          {
+            "text": "Data-led content:",
+            "bold": true
+          },
+          {
+            "text": " using analytics to find the best-performing content and double down"
+          }
+        ],
+        [
+          {
+            "text": "Local search:",
+            "bold": true
+          },
+          {
+            "text": " SEO and a Google Business Profile to capture people searching nearby"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key learnings",
+      "id": "key-learnings"
+    },
+    {
+      "type": "quote",
+      "text": "Consistency beats perfection."
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Showing up daily built visibility faster than occasional polished posts."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "AI is a force multiplier.",
+            "bold": true
+          },
+          {
+            "text": " AI tools turned a one-person side hustle into a full content and marketing team."
+          }
+        ],
+        [
+          {
+            "text": "Trust is the story.",
+            "bold": true
+          },
+          {
+            "text": " A traditional business's biggest asset online is its story and trust, so I put \"since 2003\" front and centre."
+          }
+        ],
+        [
+          {
+            "text": "Design drives outcomes.",
+            "bold": true
+          },
+          {
+            "text": " Wearing every hat (designer, marketer, editor, strategist, builder) showed me how design decisions directly affect business results."
+          }
+        ],
+        [
+          {
+            "text": "Always learning.",
+            "bold": true
+          },
+          {
+            "text": " I keep picking up new marketing and growth techniques and applying them in real time."
+          }
+        ]
+      ]
+    }
+  ]
+}

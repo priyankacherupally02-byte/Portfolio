@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 // Two-colour system on one backdrop:
 //   primary  = soft violet  (actions, active states, highlights)
 //   neutral  = warm stone   (cards, chips, quiet hovers)
@@ -23,6 +25,9 @@
   --neutral-soft: #f3f1ed;
   --neutral-ink: #5e5a52;
 
+  // Device frame around phone screenshots — dark in both themes.
+  --bezel: #1f1e24;
+
   color-scheme: light;
 }
 
@@ -46,6 +51,8 @@
   --neutral-soft: #26252b;
   --neutral-ink: #b9b5ad;
 
+  --bezel: #0c0b0e;
+
   color-scheme: dark;
 }
 
@@ -68,8 +75,10 @@ body {
 body {
   background: var(--paper);
   color: var(--body);
-  font-family: 'Inter', system-ui, sans-serif;
-  line-height: 1.55;
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: $weight-regular;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background 0.4s ease, color 0.4s ease;
 }
@@ -113,7 +122,14 @@ h3,
 h4 {
   margin: 0;
   color: var(--ink);
-  font-weight: 600;
+  font-family: $font-heading;
+  font-weight: $weight-heading;
+}
+
+// Only 400 and 600 are loaded for Inter — keep bold on the loaded weight.
+strong,
+b {
+  font-weight: $weight-strong;
 }
 
 p {

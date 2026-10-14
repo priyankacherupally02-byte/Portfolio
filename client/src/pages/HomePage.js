@@ -5,7 +5,7 @@ import { Hero } from '@/features/home/Hero'
 import { StatGrid } from '@/features/home/StatGrid'
 import { ProjectList } from '@/features/work/ProjectList'
 import { useDocumentMeta } from '@/hooks/useDocumentMeta'
-import { PROFILE, SECTIONS, SEO_DESCRIPTION } from '@/content'
+import { PROFILE, SECTIONS, SEO_DESCRIPTION, SIDE_PROJECTS } from '@/content'
 import styles from './HomePage.module.scss'
 
 export default function HomePage() {
@@ -27,6 +27,11 @@ export default function HomePage() {
       <PageSection id="home-work">
         <SectionHead {...SECTIONS.work} />
         <ProjectList />
+      </PageSection>
+
+      <PageSection id="home-side">
+        <SectionHead {...SECTIONS.side} />
+        <ProjectList projects={SIDE_PROJECTS} />
       </PageSection>
 
       <PageSection id="home-about">

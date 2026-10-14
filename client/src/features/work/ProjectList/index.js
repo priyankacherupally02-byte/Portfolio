@@ -8,6 +8,8 @@ import styles from './ProjectList.module.scss'
 
 const PREVIEW_WIDTH = 400
 const PREVIEW_GAP = 32
+// Cards stay scannable; the case-study page lists every tag.
+const MAX_CARD_TAGS = 3
 
 // Pixel size of a project's cover, looked up from its case-study image blocks.
 function coverSize(project) {
@@ -26,8 +28,8 @@ function canHoverPreview() {
 // to the right of the cursor (flipping left near the viewport edge) so the
 // cursor's "Read case study" label stays visible. Portalled to <body> so it
 // layers above <main>.
-function HoverPreview({ previewRef, activeSlug }) {
-  const active = PROJECTS.find((project) => project.slug === activeSlug)
+function HoverPreview({ projects, previewRef, activeSlug }) {
+  const active = projects.find((project) => project.slug === activeSlug)
   const size = active ? coverSize(active) : null
   return createPortal(
     <div
@@ -36,7 +38,7 @@ function HoverPreview({ previewRef, activeSlug }) {
       style={size ? { aspectRatio: `${size.width} / ${size.height}` } : undefined}
       aria-hidden="true"
     >
-      {PROJECTS.filter((project) => project.cover).map((project) => (
+      {projects.filter((project) => project.cover).map((project) => (
         <img
           key={project.slug}
           className={`${styles.previewImage} ${project.slug === activeSlug ? styles.previewImageActive : ''}`}
@@ -49,7 +51,7 @@ function HoverPreview({ previewRef, activeSlug }) {
   )
 }
 
-export function ProjectList() {
+export function ProjectList({ projects = PROJECTS }) {
   const [enabled] = useState(canHoverPreview)
   const [activeSlug, setActiveSlug] = useState(null)
   const previewRef = useRef(null)
@@ -66,7 +68,7 @@ export function ProjectList() {
   return (
     <>
       <ol className={styles.list} onPointerMove={enabled ? trackPointer : undefined}>
-        {PROJECTS.map((project, index) => (
+        {projects.map((project, index) => (
           <li key={project.slug}>
             <Link
               className={styles.card}
@@ -74,11 +76,11 @@ export function ProjectList() {
               data-spotlight
               data-cursor-label="Read case study"
               aria-label={`${project.title} — read the case study`}
-              onPointerEnter={enabled ? (event) => {
+              onPointerEnter={enabled && project.cover ? (event) => {
                 trackPointer(event)
                 setActiveSlug(project.slug)
               } : undefined}
-              onPointerLeave={enabled ? () => setActiveSlug(null) : undefined}
+              onPointerLeave={enabled && project.cover ? () => setActiveSlug(null) : undefined}
             >
               <span className={styles.index}>{String(index + 1).padStart(2, '0')}</span>
 
@@ -90,7 +92,7 @@ export function ProjectList() {
               <div className={styles.body}>
                 <p className={styles.summary}>{project.summary}</p>
                 <div className={styles.tags}>
-                  {project.tags.map((tag) => (
+                  {project.tags.slice(0, MAX_CARD_TAGS).map((tag) => (
                     <span className={styles.tag} key={tag}>
                       {tag}
                     </span>
@@ -106,7 +108,7 @@ export function ProjectList() {
         ))}
       </ol>
 
-      {enabled && <HoverPreview previewRef={previewRef} activeSlug={activeSlug} />}
+      {enabled && <HoverPreview projects={projects} previewRef={previewRef} activeSlug={activeSlug} />}
     </>
   )
 }

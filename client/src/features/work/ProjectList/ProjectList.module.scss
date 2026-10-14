@@ -59,11 +59,9 @@
 }
 
 .index {
-  @include serif;
+  @include heading-stat;
   grid-area: index;
   align-self: start;
-  font-size: 2.4rem;
-  line-height: 1;
   color: var(--muted);
   opacity: 0.6;
   transition:
@@ -84,14 +82,12 @@
 }
 
 .subtitle {
-  @include mono-label;
+  @include label;
   color: var(--neutral-ink);
 }
 
 .title {
-  @include serif;
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
-  line-height: 1.15;
+  @include heading-2;
   color: var(--ink);
 }
 
@@ -117,8 +113,8 @@
   border-radius: $radius-pill;
   background: var(--neutral-soft);
   color: var(--neutral-ink);
-  font-size: 0.75rem;
-  font-weight: 600;
+  @include text-xs;
+  font-weight: $weight-strong;
 }
 
 .arrow {

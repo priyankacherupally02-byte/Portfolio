@@ -177,19 +177,19 @@
 }
 
 .project {
-  font-size: 0.85rem;
-  font-weight: 600;
+  @include text-sm;
+  font-weight: $weight-strong;
   color: var(--ink);
 }
 
 .title {
-  font-size: 0.8rem;
+  @include text-xs;
   color: var(--muted);
 }
 
 .caseLink {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: $weight-strong;
 
   &:hover,
   &:focus-visible {
@@ -205,7 +205,7 @@
 }
 
 .counter {
-  @include mono-label;
+  @include label;
   min-width: 64px;
   text-align: center;
   font-variant-numeric: tabular-nums;

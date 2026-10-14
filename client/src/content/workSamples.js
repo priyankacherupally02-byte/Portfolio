@@ -47,6 +47,13 @@ export const WORK_SAMPLES = [
     title: 'Load management dashboard',
   },
   {
+    id: 'divya-silks-instagram',
+    device: 'mobile',
+    project: 'Divya Silks · Side hustle',
+    title: 'Instagram profile, built from scratch',
+    caseStudySlug: 'divya-silks',
+  },
+  {
     id: 'job-portal',
     device: 'desktop',
     project: 'Job Portal',

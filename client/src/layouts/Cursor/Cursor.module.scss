@@ -1,4 +1,5 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .root {
   pointer-events: none;
@@ -70,14 +71,10 @@
 }
 
 .label {
-  padding: 0 10px;
+  padding: 0 8px;
   color: var(--accent-ink);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1.25;
+  @include label(null);
   text-align: center;
-  text-transform: uppercase;
   opacity: 0;
   transform: scale(0.6);
   transition:
@@ -117,8 +114,8 @@
 
 .root[data-state='label'] {
   .ringShape {
-    width: 96px;
-    height: 96px;
+    width: 104px;
+    height: 104px;
     border-color: transparent;
     background: var(--accent);
   }

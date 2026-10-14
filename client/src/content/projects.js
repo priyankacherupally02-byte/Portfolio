@@ -28,10 +28,35 @@ export const PROJECTS = [
   },
 ]
 
+// Work outside client/full-time UI/UX, listed in its own "Beyond design" section.
+// No `cover`: its screenshots are tall phone captures, which don't suit the
+// wide hover preview.
+export const SIDE_PROJECTS = [
+  {
+    slug: 'divya-silks',
+    title: 'Divya Silks',
+    subtitle: 'Side Hustle · Built from Scratch',
+    summary:
+      'A side hustle where I took a 20-year-old saree store online, from zero to a growing digital brand.',
+    tags: [
+      'Digital Marketing',
+      'Brand Strategy',
+      'Social Media',
+      'Content Creation',
+      'Video Editing',
+      'Web Design',
+      'Growth',
+    ],
+  },
+]
+
+// Case-study pages page through client work first, then side projects.
+export const ALL_PROJECTS = [...PROJECTS, ...SIDE_PROJECTS]
+
 export function getProjectBySlug(slug) {
-  return PROJECTS.find((project) => project.slug === slug)
+  return ALL_PROJECTS.find((project) => project.slug === slug)
 }
 
 export function getProjectIndex(slug) {
-  return PROJECTS.findIndex((project) => project.slug === slug)
+  return ALL_PROJECTS.findIndex((project) => project.slug === slug)
 }

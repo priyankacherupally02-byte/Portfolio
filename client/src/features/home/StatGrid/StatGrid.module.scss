@@ -44,12 +44,10 @@
 }
 
 .value {
-  @include serif;
-  font-size: clamp(2rem, 3.6vw, 2.8rem);
-  line-height: 1;
+  @include heading-stat;
   color: var(--ink);
 }
 
 .label {
-  @include mono-label;
+  @include label;
 }

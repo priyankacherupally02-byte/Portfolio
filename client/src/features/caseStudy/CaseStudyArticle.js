@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ArrowRight, ArrowUpRight, Maximize2, Quote } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ImagePlus, Maximize2, Quote } from 'lucide-react'
 import { RichText } from './RichText'
 import { Lightbox } from './Lightbox'
 import { caseStudyImage } from './caseStudyImages'
@@ -67,6 +67,22 @@ function Contents({ headings }) {
   )
 }
 
+// Content marked `"draft": true` (placeholders for screenshots, numbers or links
+// still to come) shows on the dev server only, so it never ships half-finished.
+export function isShown(item) {
+  return !item.draft || import.meta.env.DEV
+}
+
+function Placeholder({ label, hint, className = '', style }) {
+  return (
+    <div className={`${styles.placeholder} ${className}`} style={style}>
+      <ImagePlus size={22} aria-hidden="true" />
+      <span className={styles.placeholderLabel}>{label}</span>
+      {hint && <span className={styles.placeholderHint}>{hint}</span>}
+    </div>
+  )
+}
+
 function Block({ block, openImage }) {
   switch (block.type) {
     case 'heading':
@@ -100,9 +116,17 @@ function Block({ block, openImage }) {
     }
     case 'images':
       return (
-        <div className={styles.gallery} data-count={block.items.length} data-reveal>
+        <div
+          className={styles.gallery}
+          data-count={block.items.length}
+          data-columns={block.columns}
+          style={block.columns ? { '--cols': block.columns } : undefined}
+          data-reveal
+        >
           {block.label && (
-            <span className={`${styles.badge} ${block.label === 'After' ? styles.badgeAfter : ''}`}>{block.label}</span>
+            <span className={`${styles.badge} ${block.label === 'After' || block.accent ? styles.badgeAfter : ''}`}>
+              {block.label}
+            </span>
           )}
           {block.items.map((image) => (
             <figure key={image.file} className={styles.figure}>
@@ -183,11 +207,83 @@ function Block({ block, openImage }) {
           </ol>
         </div>
       )
+    case 'timeline':
+      return (
+        <ol className={styles.timeline}>
+          {block.items.map((item, index) => (
+            <li key={item.title} className={styles.timelineItem} data-reveal>
+              <span className={styles.timelineIndex}>{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <p className={styles.timelineTitle}>{item.title}</p>
+                <p className={styles.timelineBody}>
+                  <RichText segments={item.segments} />
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      )
+    case 'phones':
+      return (
+        <div className={styles.phones} data-reveal>
+          {block.items.map((item) => (
+            <figure key={item.file || item.caption} className={styles.phoneFigure}>
+              {item.file ? (
+                <button
+                  type="button"
+                  className={styles.phone}
+                  onClick={() => openImage(item.file)}
+                  data-cursor-label="Expand"
+                  aria-label={`Expand screenshot: ${item.caption}`}
+                >
+                  <img src={item.src} alt={item.alt} width={item.width} height={item.height} loading="lazy" />
+                </button>
+              ) : (
+                <Placeholder className={styles.phonePlaceholder} label="Add screenshot" />
+              )}
+              {item.caption && <figcaption className={styles.caption}>{item.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      )
+    case 'placeholder':
+      return (
+        <div className={styles.placeholderGroup} data-count={block.count}>
+          {Array.from({ length: block.count }, (_, index) => (
+            <Placeholder
+              key={index}
+              label={block.label}
+              hint={block.hint}
+              style={{ aspectRatio: block.aspect }}
+            />
+          ))}
+        </div>
+      )
+    case 'tools':
+      return (
+        <div className={styles.tools} data-reveal>
+          {block.groups.map((group) => (
+            <div key={group.label} className={styles.toolGroup}>
+              <p className={styles.toolLabel}>{group.label}</p>
+              <ul className={styles.toolChips}>
+                {group.items.map((tool) => (
+                  <li key={tool} className={`${styles.toolChip} ${group.accent ? styles.toolChipAccent : ''}`}>
+                    <span className={styles.toolMark} aria-hidden="true">
+                      {tool[0]}
+                    </span>
+                    {tool}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )
     case 'stats':
       return (
         <div className={styles.stats} data-reveal>
           {block.items.map((item) => (
-            <div key={item.value} className={styles.stat}>
+            <div key={item.label} className={`${styles.stat} ${item.draft ? styles.statDraft : ''}`}>
               <span className={styles.statValue}>{item.value}</span>
               <span className={styles.statLabel}>{item.label}</span>
             </div>
@@ -235,6 +331,8 @@ function blockText(block) {
       return block.items.map(segText).join(' ')
     case 'compare':
       return [block.title, ...block.columns.map((c) => segText(c.segments))].join(' ')
+    case 'timeline':
+      return block.items.map((item) => [item.title, segText(item.segments)].join(' ')).join(' ')
     case 'heading':
     case 'quote':
       return block.text
@@ -277,25 +375,38 @@ export function CaseStudyArticle({ study }) {
   const [lightboxIndex, setLightboxIndex] = useState(null)
   const articleRef = useRef(null)
 
-  // Resolve image URLs once; the lightbox pages through every image in the study.
+  // Drop drafts outside dev, then resolve image URLs once; the lightbox pages
+  // through every image (and phone screenshot) in the study.
   const blocks = useMemo(
     () =>
-      study.blocks.map((block) =>
-        block.type === 'images'
-          ? {
-              ...block,
-              items: block.items.map((image) => ({
-                ...image,
-                src: caseStudyImage(study.slug, image.file),
-                alt: image.caption || `${study.title} screen`,
-              })),
-            }
-          : block
-      ),
+      study.blocks.filter(isShown).map((block) => {
+        if (!block.items) return block
+        const items = block.items.filter(isShown)
+        if (block.type !== 'images' && block.type !== 'phones') return { ...block, items }
+        return {
+          ...block,
+          items: items.map((image) =>
+            image.file
+              ? {
+                  ...image,
+                  src: caseStudyImage(study.slug, image.file),
+                  alt: image.caption || `${study.title} screen`,
+                }
+              : image
+          ),
+        }
+      }),
     [study.blocks, study.slug, study.title]
   )
   useReveal(articleRef, [blocks])
-  const allImages = useMemo(() => blocks.filter((b) => b.type === 'images').flatMap((b) => b.items), [blocks])
+  const allImages = useMemo(
+    () =>
+      blocks
+        .filter((b) => b.type === 'images' || b.type === 'phones')
+        .flatMap((b) => b.items)
+        .filter((item) => item.file),
+    [blocks]
+  )
   const headings = useMemo(() => blocks.filter((b) => b.type === 'heading' && b.level === 2), [blocks])
 
   function openImage(file) {

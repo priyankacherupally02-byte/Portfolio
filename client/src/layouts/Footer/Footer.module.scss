@@ -48,8 +48,8 @@
   border-radius: $radius-pill;
   background: var(--primary-soft);
   color: var(--primary-ink);
-  font-size: 0.8rem;
-  font-weight: 600;
+  @include text-sm;
+  font-weight: $weight-strong;
 }
 
 .pulse {
@@ -61,10 +61,8 @@
 }
 
 .title {
-  @include serif;
+  @include heading-1;
   max-width: 720px;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 1.12;
 
   em {
     font-style: italic;
@@ -75,8 +73,7 @@
 // Big mailto link with a pastel underline that grows on hover.
 .email {
   position: relative;
-  font-size: clamp(1.05rem, 2.6vw, 1.5rem);
-  font-weight: 600;
+  @include heading-3;
   color: var(--ink);
   word-break: break-all;
   background: linear-gradient(var(--primary-soft), var(--primary-soft)) no-repeat 0 100% / 100% 0.35em;
@@ -105,7 +102,7 @@
 }
 
 .socialsLabel {
-  @include mono-label;
+  @include label;
   margin-right: 4px;
 }
 
@@ -154,7 +151,7 @@
 }
 
 .meta {
-  @include mono-label;
+  @include label;
 }
 
 .links {
@@ -171,8 +168,8 @@
   padding: 6px 12px;
   border-radius: $radius-pill;
   color: var(--body);
-  font-size: 0.85rem;
-  font-weight: 600;
+  @include text-sm;
+  font-weight: $weight-strong;
   transition:
     background 0.2s ease,
     color 0.2s ease;

@@ -17,14 +17,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-size: 1.05rem;
+  @include text-lg;
   min-width: 0;
 }
 
 .lead {
-  @include serif;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  line-height: 1.45;
+  @include heading-lead;
   color: var(--ink);
 }
 
@@ -96,12 +94,83 @@
   border-radius: $radius-pill;
   background: var(--surface);
   color: var(--ink);
-  font-size: 0.85rem;
-  font-weight: 600;
+  @include text-sm;
+  font-weight: $weight-strong;
   box-shadow: 0 10px 24px -10px var(--shadow);
   transition: transform 0.4s $ease-spring;
 
   .portrait:hover & {
     transform: translateY(-6px) rotate(-3deg);
+  }
+}
+
+// Side-hustle link card — same surface, hover lift and arrow as the project cards.
+.side {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  background-color: var(--surface);
+  @include spotlight($color: var(--surface), $size: 320px);
+  transition:
+    transform 0.45s $ease-spring,
+    background-color 0.35s ease,
+    border-color 0.35s ease;
+  @include focus-ring;
+
+  > span:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &:hover {
+    background-color: var(--primary-soft);
+    border-color: var(--primary-soft);
+    transform: translateY(-4px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.sideLabel {
+  @include label;
+  color: var(--primary-ink);
+}
+
+.sideTitle {
+  @include heading-3;
+  color: var(--ink);
+}
+
+.sideSummary {
+  @include text-sm;
+  color: var(--body);
+}
+
+.sideArrow {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--neutral-soft);
+  color: var(--ink);
+  transition:
+    transform 0.45s $ease-spring,
+    background 0.3s ease,
+    color 0.3s ease;
+
+  .side:hover & {
+    background: var(--accent);
+    color: var(--accent-ink);
+    transform: rotate(45deg);
   }
 }

@@ -1,21 +1,92 @@
 @use 'variables' as *;
 
-@mixin mono-label {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
+// ---------------------------------------------------------------------------
+// Type scale. Every piece of text uses one of these — no ad-hoc font sizes.
+// Headings (Fraunces) set family + weight; body styles (Inter) set only size
+// and line-height so a component can still opt into $weight-strong.
+// ---------------------------------------------------------------------------
+
+@mixin heading {
+  font-family: $font-heading;
+  font-weight: $weight-heading;
 }
 
-@mixin serif {
-  font-family: 'Fraunces', serif;
-  font-weight: 500;
+// Hero and case-study titles.
+@mixin heading-display {
+  @include heading;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+// Section titles.
+@mixin heading-1 {
+  @include heading;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+// Sub-section titles, project titles, pull quotes.
+@mixin heading-2 {
+  @include heading;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.2;
+}
+
+@mixin heading-3 {
+  @include heading;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+// Serif lead paragraph that sits between a heading and body copy.
+@mixin heading-lead {
+  @include heading;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.45;
+}
+
+// Big numerals.
+@mixin heading-stat {
+  @include heading;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1;
+}
+
+@mixin text-lg {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+@mixin text-body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@mixin text-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@mixin text-xs {
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+// Uppercase eyebrow / label. Pass `null` to keep a colour set by the caller.
+@mixin label($color: var(--muted)) {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: $weight-strong;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color;
 }
 
 @mixin group-title {
-  @include mono-label;
+  @include label;
   margin-bottom: 12px;
 }
 

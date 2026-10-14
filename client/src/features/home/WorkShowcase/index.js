@@ -14,6 +14,7 @@ import ramakrishnaBooks from '@/assets/work-samples/ramakrishna-books.jpg'
 import seatrackMobile from '@/assets/work-samples/seatrack-mobile.jpg'
 import veganBakeryHome from '@/assets/work-samples/vegan-bakery-home.jpg'
 import veganBakeryCart from '@/assets/work-samples/vegan-bakery-cart.jpg'
+import divyaSilksInstagram from '@/assets/work-samples/divya-silks-instagram.jpg'
 
 // Pixel sizes of the files in assets/work-samples/ — each card takes its image's
 // exact aspect ratio so no screen is cropped. Update these if an image is replaced.
@@ -28,6 +29,7 @@ const IMAGES = {
   'seatrack-mobile': { src: seatrackMobile, width: 360, height: 782 },
   'vegan-bakery-home': { src: veganBakeryHome, width: 320, height: 680 },
   'vegan-bakery-cart': { src: veganBakeryCart, width: 320, height: 692 },
+  'divya-silks-instagram': { src: divyaSilksInstagram, width: 360, height: 800 },
 }
 
 // Must match .bezelled's width/height in the stylesheet: the screenshot fills

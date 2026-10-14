@@ -1,3 +1,11 @@
+// Typography — exactly two families: Fraunces for headings, Inter for body.
+// Loaded weights (index.html): Fraunces 500 + 500 italic, Inter 400 + 600.
+$font-heading: 'Fraunces', Georgia, serif;
+$font-body: 'Inter', system-ui, sans-serif;
+$weight-heading: 500;
+$weight-regular: 400;
+$weight-strong: 600;
+
 // Breakpoints
 $bp-sm: 480px;
 $bp-btn: 560px;

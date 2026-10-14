@@ -44,7 +44,7 @@
 }
 
 .eyebrow {
-  @include mono-label;
+  @include label;
   color: var(--primary-ink);
 }
 
@@ -71,7 +71,7 @@
   align-items: center;
   gap: 6px;
   color: var(--ink);
-  font-weight: 600;
+  font-weight: $weight-strong;
 }
 
 .sparkle {
@@ -80,16 +80,14 @@
 }
 
 .title {
-  @include serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-  line-height: 1.12;
+  @include heading-1;
   color: var(--ink);
 }
 
 .description {
   max-width: 520px;
   color: var(--body);
-  font-size: 1.05rem;
+  @include text-lg;
 }
 
 .facts {
@@ -103,8 +101,8 @@
     border: 1px solid var(--border);
     background: var(--surface);
     color: var(--ink);
-    font-size: 0.82rem;
-    font-weight: 600;
+    @include text-sm;
+    font-weight: $weight-strong;
   }
 }
 
@@ -179,8 +177,8 @@
   figcaption {
     padding: 8px 2px 10px;
     color: var(--ink);
-    font-size: 0.78rem;
-    font-weight: 600;
+    @include text-xs;
+    font-weight: $weight-strong;
     text-align: center;
   }
 
@@ -209,7 +207,7 @@
 
 .hint {
   color: var(--muted);
-  font-size: 0.82rem;
+  @include text-sm;
   text-align: center;
 }
 

@@ -94,8 +94,8 @@ button.stack {
   border-radius: $radius-pill;
   background: var(--neutral-soft);
   color: var(--neutral-ink);
-  font-size: 0.78rem;
-  font-weight: 700;
+  @include text-xs;
+  font-weight: $weight-strong;
   text-align: center;
 }
 

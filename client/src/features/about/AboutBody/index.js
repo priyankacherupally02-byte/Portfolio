@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
 import { FactList } from '@/components/FactList'
-import { ABOUT, QUICK_FACTS, PROFILE } from '@/content'
+import { ABOUT, ABOUT_SIDE_HUSTLE, QUICK_FACTS, PROFILE } from '@/content'
 import portrait from '@/assets/profile/priyanka-portrait.jpg'
 import styles from './AboutBody.module.scss'
 
@@ -12,6 +14,21 @@ export function AboutBody() {
             {paragraph}
           </p>
         ))}
+        <Link
+          to={ABOUT_SIDE_HUSTLE.to}
+          className={styles.side}
+          data-spotlight
+          data-cursor-label="Read case study"
+        >
+          <span>
+            <span className={styles.sideLabel}>{ABOUT_SIDE_HUSTLE.label}</span>
+            <span className={styles.sideTitle}>{ABOUT_SIDE_HUSTLE.title}</span>
+            <span className={styles.sideSummary}>{ABOUT_SIDE_HUSTLE.summary}</span>
+          </span>
+          <span className={styles.sideArrow} aria-hidden="true">
+            <ArrowUpRight size={18} />
+          </span>
+        </Link>
         <div className={styles.facts}>
           <FactList facts={QUICK_FACTS} />
         </div>

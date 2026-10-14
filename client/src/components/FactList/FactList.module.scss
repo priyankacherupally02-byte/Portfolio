@@ -28,7 +28,7 @@
 }
 
 .term {
-  @include mono-label;
+  @include label;
   margin-bottom: 6px;
   color: var(--neutral-ink);
 }
@@ -36,6 +36,6 @@
 .value {
   margin: 0;
   color: var(--ink);
-  font-size: 1rem;
-  font-weight: 600;
+  @include text-body;
+  font-weight: $weight-strong;
 }

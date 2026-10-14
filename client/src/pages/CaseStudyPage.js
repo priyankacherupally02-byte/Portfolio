@@ -1,16 +1,17 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Clock } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight, Clock } from 'lucide-react'
+import { Button } from '@/components/Button'
 import { PageSection } from '@/components/PageSection'
-import { CaseStudyArticle, readingMinutes } from '@/features/caseStudy/CaseStudyArticle'
+import { CaseStudyArticle, isShown, readingMinutes } from '@/features/caseStudy/CaseStudyArticle'
 import { ReadingProgress } from '@/features/caseStudy/ReadingProgress'
 import { useDocumentMeta } from '@/hooks/useDocumentMeta'
-import { PROFILE, PROJECTS, getCaseStudy, getProjectIndex } from '@/content'
+import { ALL_PROJECTS, PROFILE, getCaseStudy, getProjectIndex } from '@/content'
 import styles from '@/features/caseStudy/CaseStudy.module.scss'
 
 export default function CaseStudyPage() {
   const { slug } = useParams()
   const index = getProjectIndex(slug)
-  const project = PROJECTS[index]
+  const project = ALL_PROJECTS[index]
   const study = getCaseStudy(slug)
 
   useDocumentMeta({
@@ -20,7 +21,8 @@ export default function CaseStudyPage() {
 
   if (!project || !study) return <Navigate to="/work" replace />
 
-  const next = PROJECTS[(index + 1) % PROJECTS.length]
+  const next = ALL_PROJECTS[(index + 1) % ALL_PROJECTS.length]
+  const links = study.links?.filter(isShown) ?? []
 
   return (
     <PageSection hero>
@@ -42,6 +44,28 @@ export default function CaseStudyPage() {
             <Clock size={13} aria-hidden="true" /> {readingMinutes(study)} min read
           </span>
         </div>
+        {links.length > 0 && (
+          <div className={styles.actions}>
+            {links.map((link, i) =>
+              link.href ? (
+                <Button
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant={i === 0 ? 'solid' : 'ghost'}
+                  icon={<ArrowUpRight size={14} />}
+                >
+                  {link.label}
+                </Button>
+              ) : (
+                <span key={link.label} className={styles.draftAction}>
+                  {link.label}: add link
+                </span>
+              )
+            )}
+          </div>
+        )}
       </header>
 
       {study.glance && (
