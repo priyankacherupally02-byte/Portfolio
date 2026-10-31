@@ -27,8 +27,7 @@
     },
     {
       "label": "Visit the website",
-      "href": "",
-      "draft": true
+      "href": "https://divya-silks-website.vercel.app/"
     }
   ],
   "blocks": [
@@ -505,16 +504,90 @@
     {
       "type": "heading",
       "level": 3,
-      "text": "Website",
-      "draft": true
+      "text": "Website"
     },
     {
-      "type": "placeholder",
-      "draft": true,
-      "label": "Website screenshots",
-      "hint": "Home and collection pages",
-      "count": 2,
-      "aspect": "16 / 10"
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The website is where the social audience lands. I designed and built it with Claude and VS Code, carrying the brand’s warm, premium look across so it feels like the same store customers already know from Instagram."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Shop the way customers ask.",
+            "bold": true
+          },
+          {
+            "text": " The main navigation follows the weaves people ask for in store: Pattu, Banarasi, Kanchipuram, Pochampally, Gadwal and Paithani, plus a Sale section."
+          }
+        ],
+        [
+          {
+            "text": "Find a saree fast.",
+            "bold": true
+          },
+          {
+            "text": " One search bar covers saree, fabric, colour and occasion, with a wishlist and cart in the header."
+          }
+        ],
+        [
+          {
+            "text": "Lead with trust.",
+            "bold": true
+          },
+          {
+            "text": " “Since 2003”, the store’s own photos and the founder’s weaving story sit on the home and About pages."
+          }
+        ],
+        [
+          {
+            "text": "Bridge online and in-store.",
+            "bold": true
+          },
+          {
+            "text": " Customers can book a video call to see the zari work up close, and Instagram, YouTube and chat are always one tap away."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "website-home.jpg",
+          "width": 1600,
+          "height": 724,
+          "caption": "Home: shop by weave, search by fabric, colour or occasion, and book a video call to see the zari up close."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "website-about.jpg",
+          "width": 1600,
+          "height": 610,
+          "caption": "About: the real store front and the “Since 2003” story, carrying the store’s offline trust online."
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "file": "website-founder.jpg",
+          "width": 1600,
+          "height": 452,
+          "caption": "Our founder: the family’s weaving roots, told as the brand’s story."
+        }
+      ]
     },
     {
       "type": "divider"

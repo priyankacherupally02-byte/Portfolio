@@ -68,3 +68,8 @@
     max-width: 520px;
   }
 }
+
+// Connector before an alternative step (Solve or Learn) instead of an arrow.
+.or {
+  color: var(--muted);
+}

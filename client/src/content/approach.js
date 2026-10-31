@@ -17,9 +17,11 @@ export const PRODUCT_THINKING = [
     step: 'Solve',
     text: 'Design solutions that create value for users and the business.',
   },
+  // `join: 'or'` — Learn is the alternative to Solve, not the step after it.
   {
     step: 'Learn',
-    text: 'Test with real users, learn what works and change the design.',
+    join: 'or',
+    text: 'When the answer isn’t clear yet, test with real users, learn what works and change the design.',
   },
 ]
 
