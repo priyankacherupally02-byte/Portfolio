@@ -1,0 +1,70 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// Same quiet strip as the stat grid: one surface, hairline dividers. Five steps
+// sit in a row on desktop and stack (arrows turning downward) below that.
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  border-radius: $radius-xl;
+  background: var(--surface);
+  overflow: hidden;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 24px 30px;
+  border-left: 1px solid var(--border);
+  @include spotlight($size: 260px);
+
+  &:first-child {
+    border-left: 0;
+  }
+
+  @media (max-width: $bp-lg) {
+    padding: 24px;
+    border-left: 0;
+
+    & + & {
+      border-top: 1px solid var(--border);
+    }
+  }
+}
+
+.index {
+  @include label;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-ink);
+
+  svg {
+    color: var(--muted);
+
+    @media (max-width: $bp-lg) {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.title {
+  @include heading-3;
+  color: var(--ink);
+}
+
+.text {
+  @include text-sm;
+  color: var(--body);
+
+  @media (max-width: $bp-lg) {
+    @include text-body;
+    max-width: 520px;
+  }
+}

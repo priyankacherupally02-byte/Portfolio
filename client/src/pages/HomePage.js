@@ -3,6 +3,7 @@ import { SectionHead } from '@/components/SectionHead'
 import { AboutTeaser } from '@/features/home/AboutTeaser'
 import { Hero } from '@/features/home/Hero'
 import { StatGrid } from '@/features/home/StatGrid'
+import { ThinkingSteps } from '@/features/home/ThinkingSteps'
 import { ProjectList } from '@/features/work/ProjectList'
 import { useDocumentMeta } from '@/hooks/useDocumentMeta'
 import { PROFILE, SECTIONS, SEO_DESCRIPTION, SIDE_PROJECTS } from '@/content'
@@ -27,6 +28,11 @@ export default function HomePage() {
       <PageSection id="home-work">
         <SectionHead {...SECTIONS.work} />
         <ProjectList />
+      </PageSection>
+
+      <PageSection id="home-thinking">
+        <SectionHead {...SECTIONS.thinking} />
+        <ThinkingSteps />
       </PageSection>
 
       <PageSection id="home-side">

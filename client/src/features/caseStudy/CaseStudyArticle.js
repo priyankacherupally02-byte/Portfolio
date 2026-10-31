@@ -73,6 +73,10 @@ export function isShown(item) {
   return !item.draft || import.meta.env.DEV
 }
 
+// Before / After screenshot groups sit in their own tinted panel so the two
+// states read apart at a glance, not just by their small badge.
+const GALLERY_TONES = { Before: 'before', After: 'after' }
+
 function Placeholder({ label, hint, className = '', style }) {
   return (
     <div className={`${styles.placeholder} ${className}`} style={style}>
@@ -120,6 +124,7 @@ function Block({ block, openImage }) {
           className={styles.gallery}
           data-count={block.items.length}
           data-columns={block.columns}
+          data-tone={GALLERY_TONES[block.label]}
           style={block.columns ? { '--cols': block.columns } : undefined}
           data-reveal
         >

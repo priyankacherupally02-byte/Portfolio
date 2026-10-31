@@ -1,0 +1,49 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  background: var(--surface);
+  transition:
+    transform 0.35s $ease-spring,
+    border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-soft);
+  }
+}
+
+.index {
+  @include label;
+  color: var(--primary-ink);
+}
+
+.title {
+  @include heading-3;
+  color: var(--ink);
+}
+
+.text {
+  @include text-sm;
+  color: var(--body);
+}

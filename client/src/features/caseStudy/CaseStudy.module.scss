@@ -1353,3 +1353,26 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+// Before / After groups: a tinted panel per state (neutral before, primary after).
+.gallery[data-tone] {
+  padding: 24px;
+  border-radius: $radius-xl;
+
+  .badge {
+    padding: 7px 16px;
+  }
+
+  @media (max-width: $bp-md) {
+    padding: 14px;
+    border-radius: $radius-lg;
+  }
+}
+
+.gallery[data-tone='before'] {
+  background: var(--neutral-soft);
+}
+
+.gallery[data-tone='after'] {
+  background: var(--primary-soft);
+}

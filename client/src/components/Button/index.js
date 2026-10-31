@@ -60,6 +60,7 @@ export function Button({
     onPointerMove: trackPointer,
     onPointerLeave: handlePointerLeave,
     onPointerDown: handlePointerDown,
+    onClick,
     'data-cursor-label': cursorLabel,
     ...rest,
   }
@@ -109,7 +110,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} {...shared}>
+    <button type={type} {...shared}>
       {content}
     </button>
   )

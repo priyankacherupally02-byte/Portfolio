@@ -92,6 +92,7 @@ export function ProjectList({ projects = PROJECTS }) {
               <div className={styles.body}>
                 <p className={styles.summary}>{project.summary}</p>
                 <div className={styles.tags}>
+                  {project.outcome && <span className={`${styles.tag} ${styles.outcome}`}>{project.outcome}</span>}
                   {project.tags.slice(0, MAX_CARD_TAGS).map((tag) => (
                     <span className={styles.tag} key={tag}>
                       {tag}

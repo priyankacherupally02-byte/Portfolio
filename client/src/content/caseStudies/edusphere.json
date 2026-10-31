@@ -1,12 +1,12 @@
 {
   "slug": "edusphere",
   "sourceTitle": "Edusphere - Learning Management System (LMS)",
-  "headline": null,
+  "headline": "A self-serve learning platform for factory operators",
   "blocks": [
     {
       "type": "heading",
       "level": 2,
-      "text": "1 · Overview",
+      "text": "Overview",
       "id": "overview"
     },
     {
@@ -26,9 +26,12 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
       "type": "heading",
       "level": 2,
-      "text": "2 · The Problem",
+      "text": "The problem",
       "id": "the-problem"
     },
     {
@@ -86,8 +89,30 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "3 · Research & Discovery",
-      "id": "research-discovery"
+      "text": "Users & research",
+      "id": "users-research"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Two groups use EduSphere: "
+        },
+        {
+          "text": "operators",
+          "bold": true
+        },
+        {
+          "text": ", who learn and get certified, and "
+        },
+        {
+          "text": "managers and admins",
+          "bold": true
+        },
+        {
+          "text": ", who author content and track progress."
+        }
+      ]
     },
     {
       "type": "paragraph",
@@ -141,10 +166,13 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
       "type": "heading",
       "level": 2,
-      "text": "4 · First Attempt — and Why It Didn't Hold Up",
-      "id": "first-attempt-and-why-it-didn-t-hold-up"
+      "text": "First attempt — and why it didn’t hold up",
+      "id": "first-attempt"
     },
     {
       "type": "paragraph",
@@ -208,14 +236,36 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "5 · The Solution: Two Portals, One System",
-      "id": "the-solution-two-portals-one-system"
+      "text": "Information architecture",
+      "id": "information-architecture"
     },
     {
       "type": "paragraph",
       "segments": [
         {
           "text": "EduSphere splits into an Admin Portal (author and manage content, quizzes, certifications, and track everyone's progress) and a Learner Portal (consume content in a guided order and earn certifications). A single landing screen routes each user into the right experience."
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "One entry screen, two portals",
+      "columns": [
+        {
+          "label": "Learner Portal",
+          "segments": [
+            {
+              "text": "My Journey · Knowledge Hub · Certifications · Leaderboard · Quick Guides (in-product help)"
+            }
+          ]
+        },
+        {
+          "label": "Admin Portal",
+          "segments": [
+            {
+              "text": "Upload · Quiz · Certifications · Knowledge Hub (management view) · Leaderboard & Quick Guides"
+            }
+          ]
         }
       ]
     },
@@ -232,8 +282,53 @@
     },
     {
       "type": "heading",
+      "level": 2,
+      "text": "User journeys",
+      "id": "user-journeys"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Each portal is built around one main path, so neither audience has to work out where to go next."
+        }
+      ]
+    },
+    {
+      "type": "flow",
+      "title": "Operator journey",
+      "steps": [
+        "Continue from My Journey",
+        "Watch the class",
+        "Pass the quiz",
+        "Unlock the next class",
+        "Earn the certificate"
+      ]
+    },
+    {
+      "type": "flow",
+      "title": "Admin journey",
+      "steps": [
+        "Upload content",
+        "Stage it as hidden",
+        "Set the quiz & pass mark",
+        "Go live",
+        "Track completion"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Feature design",
+      "id": "feature-design"
+    },
+    {
+      "type": "heading",
       "level": 3,
-      "text": "5.1 Learner Experience"
+      "text": "Learner experience"
     },
     {
       "type": "paragraph",
@@ -328,7 +423,7 @@
     {
       "type": "heading",
       "level": 3,
-      "text": "5.2 Admin Experience"
+      "text": "Admin experience"
     },
     {
       "type": "paragraph",
@@ -457,10 +552,70 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
       "type": "heading",
       "level": 2,
-      "text": "6 · Mistakes, Learnings, and How I Worked Through Them",
-      "id": "mistakes-learnings-and-how-i-worked-through-them"
+      "text": "Building & testing",
+      "id": "building-testing"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Design and frontend, one person"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "I was both the designer and the frontend developer. I built the admin and learner screens myself in "
+        },
+        {
+          "text": "VS Code, using the Claude extension",
+          "bold": true
+        },
+        {
+          "text": ", so design decisions went straight into working screens instead of waiting on a handoff."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Usability testing"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Before I left the project, I ran usability testing for about a month with operators from the internal team, and changed the product based on what I saw them do."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "The clearest change was "
+        },
+        {
+          "text": "Quick Guides inside the platform itself",
+          "bold": true
+        },
+        {
+          "text": ": a Quick Guides button operators can click at any point to see how that process works, much like a product tour, instead of leaving the screen to look for help."
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Mistakes & learnings",
+      "id": "mistakes-learnings"
     },
     {
       "type": "compare",
@@ -559,9 +714,12 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
       "type": "heading",
       "level": 2,
-      "text": "7 · Outcome",
+      "text": "Outcome",
       "id": "outcome"
     },
     {
@@ -599,7 +757,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "8 · Reflection",
+      "text": "Reflection",
       "id": "reflection"
     },
     {
@@ -637,7 +795,7 @@
   "glance": [
     {
       "label": "Role",
-      "value": "Solo designer & developer"
+      "value": "Solo designer & frontend developer"
     },
     {
       "label": "Timeline",
@@ -652,5 +810,5 @@
       "value": "Admin Portal + Learner Portal"
     }
   ],
-  "tldr": "Thousands of factory operators had to learn a new production platform — with too few trainers and no third-party LMS allowed. I designed and built EduSphere: a self-serve learning system where operators watch, get tested and get certified, and managers author and track all of it."
+  "tldr": "Thousands of factory operators had to learn a new production platform — with too few trainers and no third-party LMS allowed. I designed EduSphere and built its frontend solo: a self-serve learning system where operators watch, get tested and get certified, and managers author and track all of it. Before handing over, I ran a month of usability testing with operators from the internal team."
 }

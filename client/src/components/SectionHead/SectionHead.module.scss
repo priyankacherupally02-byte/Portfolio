@@ -24,6 +24,10 @@
   color: var(--ink);
 }
 
+.titleSmall {
+  @include heading-2;
+}
+
 .intro {
   @include text-lg;
   color: var(--body);

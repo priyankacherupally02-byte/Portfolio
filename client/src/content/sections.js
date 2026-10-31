@@ -4,7 +4,18 @@ export const SECTIONS = {
     eyebrow: 'Case studies',
     title: 'Selected work',
     intro:
-      'Three real problems I solved by turning messy, real-world workflows into clear screens — each with the full story behind the design.',
+      'Three products, each told from the problem up: who the users were, how the workflow ran, and the decisions behind the design.',
+  },
+  thinking: {
+    eyebrow: 'Approach',
+    title: 'How I think about products',
+    intro: 'The same loop runs through every project, whether it is a factory dashboard or a learning platform.',
+  },
+  // Kept for later: set `visible: true` to show it on the About page again.
+  capabilities: {
+    eyebrow: 'Capabilities',
+    title: 'What I bring to product teams',
+    visible: false,
   },
   side: {
     eyebrow: 'Side hustle',
@@ -14,7 +25,8 @@ export const SECTIONS = {
   },
   about: {
     eyebrow: 'About',
-    title: 'Real problems, simple solutions',
+    title: "Hi, I'm Priyanka",
+    size: 'small',
   },
   interests: {
     eyebrow: 'Off-screen',

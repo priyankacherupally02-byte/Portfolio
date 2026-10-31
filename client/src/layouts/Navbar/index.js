@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Moon, Sun, Menu, X, ArrowUpRight } from 'lucide-react'
-import { PROFILE, NAV } from '@/content'
+import { PROFILE, NAV, RESUME } from '@/content'
 import { Button } from '@/components/Button'
 import { useTheme } from '@/hooks/useTheme'
 import { useAppStore } from '@/store/appStore'
@@ -40,6 +40,17 @@ export function Navbar() {
               {item.label}
             </NavLink>
           ))}
+          {RESUME.href && (
+            <a
+              href={RESUME.href}
+              target="_blank"
+              rel="noreferrer"
+              className={`${styles.link} ${styles.linkExternal}`}
+              aria-label="Resume (opens in a new tab)"
+            >
+              Resume <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+          )}
         </nav>
 
         <div className={styles.actions}>

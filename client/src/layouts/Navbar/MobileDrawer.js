@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
-import { NAV, PROFILE } from '@/content'
+import { NAV, PROFILE, RESUME } from '@/content'
 import { useAppStore } from '@/store/appStore'
 import styles from './Navbar.module.scss'
 
@@ -33,10 +33,22 @@ export function MobileDrawer() {
           {item.label}
         </NavLink>
       ))}
+      {RESUME.href && (
+        <a
+          className={styles.drawerResume}
+          href={RESUME.href}
+          target="_blank"
+          rel="noreferrer"
+          style={{ animationDelay: `${NAV.length * 60}ms` }}
+          onClick={closeMobileMenu}
+        >
+          View resume <ArrowUpRight size={16} />
+        </a>
+      )}
       <a
         className={styles.drawerMail}
         href={`mailto:${PROFILE.email}`}
-        style={{ animationDelay: `${NAV.length * 60}ms` }}
+        style={{ animationDelay: `${(NAV.length + 1) * 60}ms` }}
       >
         Let&apos;s talk <ArrowUpRight size={16} />
       </a>

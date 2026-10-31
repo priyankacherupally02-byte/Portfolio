@@ -208,3 +208,9 @@
     transition: opacity 0.2s ease;
   }
 }
+
+// Headline result, shown before the tags in the primary tint.
+.outcome {
+  background: var(--primary-soft);
+  color: var(--primary-ink);
+}

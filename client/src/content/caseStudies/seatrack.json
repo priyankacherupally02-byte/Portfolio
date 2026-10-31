@@ -116,6 +116,62 @@
       ]
     },
     {
+      "type": "heading",
+      "level": 2,
+      "text": "Design approach",
+      "id": "design-approach"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Fourteen stages, several teams and two plants meant the risk was never one bad screen. It was data going missing between screens. Four principles ran through every stage:"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        [
+          {
+            "text": "One screen per job.",
+            "bold": true
+          },
+          {
+            "text": " Each role sees only the stage it runs, without needing to understand everyone else’s."
+          }
+        ],
+        [
+          {
+            "text": "Let the system do the maths.",
+            "bold": true
+          },
+          {
+            "text": " Yield percentages, packing totals and slab-to-kilogram conversions are calculated automatically, so a supervisor can judge a batch at a glance."
+          }
+        ],
+        [
+          {
+            "text": "Never lose a batch’s identity.",
+            "bold": true
+          },
+          {
+            "text": " Merges, splits and plant-to-plant transfers all keep the original batch numbers."
+          }
+        ],
+        [
+          {
+            "text": "Capture it the same way twice.",
+            "bold": true
+          },
+          {
+            "text": " Site and plant receiving record the same fields, so what was booked can be checked against what actually arrived."
+          }
+        ]
+      ]
+    },
+    {
       "type": "divider"
     },
     {
@@ -556,6 +612,19 @@
       ]
     },
     {
+      "type": "heading",
+      "level": 3,
+      "text": "Also designed: quality monitoring and the design system"
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "Alongside the 14 stages, I designed SeaTrack’s quality monitoring screens (left out here to keep this page readable) and the design system that every SeaTrack screen is built from."
+        }
+      ]
+    },
+    {
       "type": "divider"
     },
     {
@@ -687,8 +756,8 @@
   ],
   "glance": [
     {
-      "label": "Product",
-      "value": "PatternLab.AI — SeaTrack"
+      "label": "Role",
+      "value": "Designed every screen + the design system"
     },
     {
       "label": "Scope",
@@ -703,5 +772,5 @@
       "value": "Live, in daily use"
     }
   ],
-  "tldr": "Shrimp moved from farmer booking to cold storage through 14 stages, each tracked in separate sheets by separate teams. I designed SeaTrack's screens for every stage — and a Traceability Agent that shows any batch's full journey on one live graph."
+  "tldr": "Shrimp moved from farmer booking to cold storage through 14 stages, each tracked in separate sheets by separate teams. I designed SeaTrack's screens for every stage, the quality monitoring screens and the design system behind them — plus a Traceability Agent that shows any batch's full journey on one live graph."
 }

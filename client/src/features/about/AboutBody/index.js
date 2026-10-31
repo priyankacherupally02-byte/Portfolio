@@ -37,7 +37,7 @@ export function AboutBody() {
         <span className={styles.frameA} aria-hidden="true" />
         <span className={styles.frameB} aria-hidden="true" />
         <img src={portrait} alt={PROFILE.name} />
-        <figcaption className={styles.caption}>Hi, I&apos;m Priyanka</figcaption>
+        <figcaption className={styles.caption}>{PROFILE.name}</figcaption>
       </figure>
     </div>
   )

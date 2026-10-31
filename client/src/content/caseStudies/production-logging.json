@@ -21,6 +21,38 @@
       "type": "paragraph",
       "segments": [
         {
+          "text": "CT sensors already know when a machine stopped and started. What they can’t capture is why, or what was made, so for every segment on the timeline the operator logs:"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [
+          {
+            "text": "Downtime",
+            "bold": true
+          },
+          {
+            "text": " — the reason for each stop."
+          }
+        ],
+        [
+          {
+            "text": "Uptime",
+            "bold": true
+          },
+          {
+            "text": " — the production entry: SKU, batch order and quantity produced."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
           "text": "The first fix was a visual one: a color-coded timeline per machine, one bar per day, segments colored by downtime type. It solved the volume problem at a glance — utilization and availability were visible instantly. But it created a new one."
         }
       ]
@@ -36,7 +68,7 @@
     {
       "type": "heading",
       "level": 3,
-      "text": "Previous Machine Timeline UI"
+      "text": "Before: the previous machine timeline"
     },
     {
       "type": "images",
@@ -44,12 +76,14 @@
         {
           "file": "01.jpg",
           "width": 1600,
-          "height": 833
+          "height": 833,
+          "caption": "Before — every micro-stop had to be found on a crowded bar and tapped one at a time to log its reason."
         },
         {
           "file": "02.jpg",
           "width": 1600,
-          "height": 833
+          "height": 833,
+          "caption": "Before — the reason dropdown overflowed its pop-up, so operators had to close it before they could save."
         }
       ],
       "label": "Before"
@@ -104,7 +138,7 @@
     {
       "type": "heading",
       "level": 3,
-      "text": "Present Machine Timeline UI"
+      "text": "After: the redesigned machine timeline"
     },
     {
       "type": "images",
@@ -112,22 +146,26 @@
         {
           "file": "03.jpg",
           "width": 1600,
-          "height": 849
+          "height": 849,
+          "caption": "After — utilisation and availability sit beside each machine’s timeline for a one-glance read."
         },
         {
           "file": "04.jpg",
           "width": 1600,
-          "height": 849
+          "height": 849,
+          "caption": "After — the three-dot menu expands a machine into a structured downtime list: one row per stop, one reason dropdown each."
         },
         {
           "file": "05.jpg",
           "width": 1600,
-          "height": 849
+          "height": 849,
+          "caption": "After — the selected segment is highlighted on the bar, so it’s always clear which stop is being logged."
         },
         {
           "file": "06.jpg",
           "width": 1600,
-          "height": 849
+          "height": 849,
+          "caption": "After — uptime opens the Production form (SKU, batch order, quantity) in the same view as downtime, lab tests and yield."
         }
       ],
       "label": "After"
@@ -137,6 +175,21 @@
       "segments": [
         {
           "text": "Downtime capture sits alongside Production, Lab Test, and Yield forms in the same view, so the operator isn't switching screens to reconstruct what happened on a line."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "segments": [
+        {
+          "text": "I also built the "
+        },
+        {
+          "text": "Factory Intelligence design system",
+          "bold": true
+        },
+        {
+          "text": ", so the timeline, the forms and the rest of the product share one set of components."
         }
       ]
     },
@@ -192,8 +245,8 @@
       "value": "PatternLab Factory Intelligence"
     },
     {
-      "label": "Category",
-      "value": "Downtime Analytics"
+      "label": "Role",
+      "value": "UI/UX Designer"
     },
     {
       "label": "Setting",

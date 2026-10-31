@@ -1,6 +1,7 @@
 // Full case-study content lives in content/caseStudies/<slug>.json and renders
 // on-site at /work/:slug. `cover` (a file in assets/case-studies/<slug>/) is the
-// screenshot shown as the card's hover preview.
+// screenshot shown as the card's hover preview. `outcome` is the headline
+// result shown on the card; it must restate a fact from the case study itself.
 export const PROJECTS = [
   {
     slug: 'edusphere',
@@ -8,14 +9,16 @@ export const PROJECTS = [
     subtitle: 'Learning Management System (LMS)',
     summary: 'Solo-built internal LMS for training factory operators at scale.',
     tags: ['SaaS', 'Enterprise', 'LMS'],
+    outcome: 'Shipped in 5 months',
     cover: '02.jpg',
   },
   {
     slug: 'production-logging',
     title: 'Production Logging at a Glance',
-    subtitle: 'Unified production event documentation',
+    subtitle: 'Factory Intelligence · Downtime analytics',
     summary: 'A single interface for logging production events, built for shop-floor speed.',
     tags: ['Enterprise', 'Manufacturing'],
+    outcome: '68% less time per downtime log',
     cover: '03.jpg',
   },
   {
@@ -24,6 +27,7 @@ export const PROJECTS = [
     subtitle: 'Batch traceability system',
     summary: 'End-to-end batch traceability across every stage of production.',
     tags: ['Enterprise', 'Traceability'],
+    outcome: 'Live, in daily use',
     cover: '06.jpg',
   },
 ]
@@ -47,6 +51,7 @@ export const SIDE_PROJECTS = [
       'Web Design',
       'Growth',
     ],
+    outcome: '3.2K+ views in 30 days',
   },
 ]
 
